@@ -6,27 +6,34 @@ import { motion } from "framer-motion";
 // ─── Infinite Marquee ─────────────────────────────────────────────────────────
 const trustSignals = [
   "DEPLOYED LIVE SYSTEMS",
-  "VERIFIED CLIENT OUTCOMES",
-  "ENTERPRISE INTEGRATION",
-  "REAL-TIME PIPELINES",
-  "ZERO DOWNTIME LAUNCHES",
-  "100% DELIVERY RATE",
+  "AI PIPELINE ACTIVE",
+  "PRODUCTION READY",
+  "AUTOMATION ONLINE",
+  "INFRASTRUCTURE STABLE",
+  "VERIFIED OUTCOMES",
 ];
 
 function TrustMarquee() {
   return (
-    <div className="relative overflow-hidden w-full border-y border-white/[0.04] py-3 mb-24 select-none">
+    <div 
+      className="relative overflow-hidden w-full py-4 mb-12 select-none"
+      style={{ 
+        maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+        WebkitMaskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)"
+      }}
+    >
       <motion.div
-        className="flex whitespace-nowrap gap-12"
+        className="flex whitespace-nowrap gap-16"
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 28, ease: "linear", repeat: Infinity }}
+        transition={{ duration: 45, ease: "linear", repeat: Infinity }}
       >
         {[...trustSignals, ...trustSignals].map((signal, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-4 font-mono text-[9px] tracking-[0.25em] uppercase text-zinc-600"
+            className="inline-flex items-center gap-6 font-mono text-[11px] tracking-[0.25em] uppercase text-zinc-300 font-medium"
+            style={{ textShadow: "0 0 10px rgba(0, 255, 208, 0.4)" }}
           >
-            <span className="size-1 rounded-full bg-zinc-700 inline-block flex-shrink-0" />
+            <span className="size-1.5 rounded-full bg-[var(--color-accent-cyan)]/80 inline-block flex-shrink-0 shadow-[0_0_8px_rgba(0,255,208,0.6)]" />
             {signal}
           </span>
         ))}
@@ -62,21 +69,16 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section
-      className="relative w-full bg-transparent py-24 lg:py-40 overflow-hidden"
+      className="relative w-full bg-transparent py-12 lg:py-16 overflow-hidden"
       id="testimonials"
     >
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 max-w-2xl"
-        >
-          <div className="mb-6 inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-[var(--color-accent-cyan)] rounded-full border border-[var(--color-accent-cyan)]/20 bg-[var(--color-accent-cyan)]/5 px-3.5 py-1.5">
-            CLIENT VALIDATION
+        <div className="mb-12 max-w-2xl">
+          <div className="mb-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-[var(--color-accent-blue)] rounded-full border border-[var(--color-accent-blue)]/20 bg-[var(--color-accent-blue)]/5 px-4 py-1.5">
+            CLIENT_RECORDS
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-5">
             System Validation
@@ -84,13 +86,13 @@ export default function Testimonials() {
           <p className="text-lg text-[var(--color-text-secondary)] font-light leading-relaxed">
             Feedback from founders and editors operating live XOVA-built infrastructure.
           </p>
-        </motion.div>
+        </div>
 
         {/* Trust Signals Marquee */}
         <TrustMarquee />
 
         {/* Testimonial Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           {testimonials.map((t, idx) => (
             <motion.div
               key={t.id}
@@ -102,7 +104,7 @@ export default function Testimonials() {
                 delay: idx * 0.15,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className={`group relative rounded-2xl border border-white/10 bg-[#0A1020]/50 backdrop-blur-md overflow-hidden flex flex-col justify-between p-8 md:p-12 transition-all duration-500 hover:border-white/20 hover:bg-[#0A1020]/80 ${t.colSpan}`}
+              className={`group relative rounded-2xl border border-white/[0.12] bg-[#050914] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_20px_40px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col justify-between p-6 md:p-8 transition-all duration-500 hover:border-white/20 hover:bg-[#070b1a] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_30px_60px_rgba(0,0,0,0.8)] ${t.colSpan}`}
             >
               {/* Subtle hover glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />

@@ -74,8 +74,8 @@ const TiltedCard = ({ children, className, glowColor = "rgba(34, 211, 238, 0.15)
         transformStyle: "preserve-3d",
       }}
       className={cn(
-        "relative rounded-2xl border border-white/10 bg-[#0A1020]/50 backdrop-blur-md overflow-hidden transition-colors duration-500",
-        isHovered ? "border-white/20 bg-[#0A1020]/80" : "",
+        "relative rounded-2xl border border-white/[0.12] bg-[#050914] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_20px_40px_rgba(0,0,0,0.6)] overflow-hidden transition-all duration-500",
+        isHovered ? "border-white/20 bg-[#070b1a] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_30px_60px_rgba(0,0,0,0.8)]" : "",
         className
       )}
     >
@@ -114,16 +114,19 @@ export default function Services() {
   }
 
   return (
-    <section className="relative pt-24 pb-32 overflow-hidden" id="services">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full z-10">
+    <section className="relative py-16 lg:py-20 overflow-hidden" id="services">
+      {/* Architectural Vector Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+      
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full z-10 relative">
         
         {/* Section Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-start mb-20 max-w-2xl"
+          className="flex flex-col items-start mb-12 max-w-2xl lg:ml-24"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3.5 py-1.5 text-[9px] font-mono tracking-widest text-[var(--color-accent-blue)] uppercase mb-6">
             CAPABILITIES
@@ -146,16 +149,16 @@ export default function Services() {
         >
           {/* Row 1: Digital Infrastructure (Full Width) */}
           <motion.div variants={itemVariants}>
-            <TiltedCard glowColor="rgba(34, 211, 238, 0.15)" className="p-8 md:p-12 min-h-[380px] flex flex-col md:flex-row gap-12 group">
+            <TiltedCard glowColor="rgba(34, 211, 238, 0.15)" className="p-6 md:p-10 min-h-[380px] flex flex-col md:flex-row gap-8 group">
               <div className="flex-1 flex flex-col justify-between">
                 <div>
-                  <Network className="size-8 text-[var(--color-accent-cyan)] mb-6 opacity-80" />
-                  <h3 className="text-2xl font-semibold text-white mb-4">Digital Infrastructure Systems</h3>
-                  <p className="text-[var(--color-text-secondary)] leading-relaxed max-w-md">
+                  <Network className="size-10 text-[var(--color-accent-cyan)] mb-6 opacity-80" />
+                  <h3 className="text-3xl font-bold text-white mb-3 tracking-tight">Digital Infrastructure Systems</h3>
+                  <p className="text-[15px] font-light text-zinc-400 leading-relaxed max-w-md">
                     Custom-built virtual foundations that keep critical operations running. Secure, scalable, and resilient cloud architectures.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-2 mt-8 font-mono text-[9px] text-zinc-500 tracking-wider">
+                <div className="flex flex-wrap gap-2 mt-6 font-mono text-[9px] text-zinc-500 tracking-wider">
                   <span className="px-2 py-1 rounded-sm border border-white/10 bg-white/5">ISOLATED VPC</span>
                   <span className="px-2 py-1 rounded-sm border border-white/10 bg-white/5">API GATEWAYS</span>
                   <span className="px-2 py-1 rounded-sm border border-white/10 bg-white/5">AUTO SCALE</span>
@@ -174,19 +177,19 @@ export default function Services() {
           </motion.div>
 
           {/* Row 2: Asymmetrical Split */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
             
             {/* AI Workflow (7 cols) */}
             <motion.div variants={itemVariants} className="md:col-span-7">
-              <TiltedCard glowColor="rgba(139, 92, 246, 0.15)" className="p-8 md:p-10 h-full flex flex-col justify-between">
+              <TiltedCard glowColor="rgba(139, 92, 246, 0.15)" className="p-6 md:p-8 h-full flex flex-col justify-between border-white/10 hover:border-white/20">
                 <div>
                   <Cpu className="size-8 text-[var(--color-accent-violet)] mb-6 opacity-80" />
-                  <h3 className="text-xl font-semibold text-white mb-4">AI Workflow Automation</h3>
-                  <p className="text-[var(--color-text-secondary)] leading-relaxed max-w-sm">
+                  <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">AI Workflow Automation</h3>
+                  <p className="text-[15px] font-light text-zinc-400 leading-relaxed max-w-sm">
                     Autonomous pipelines that handle repetitive administrative processes, liberating hours of human attention.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-2 mt-8 font-mono text-[9px] text-zinc-500 tracking-wider">
+                <div className="flex flex-wrap gap-2 mt-6 font-mono text-[9px] text-zinc-500 tracking-wider">
                   <span className="px-2 py-1 rounded-sm border border-[var(--color-accent-violet)]/20 bg-[var(--color-accent-violet)]/5 text-[var(--color-accent-violet)]">AGENTIC ROUTING</span>
                   <span className="px-2 py-1 rounded-sm border border-white/10 bg-white/5">VECTOR DB</span>
                   <span className="px-2 py-1 rounded-sm border border-white/10 bg-white/5">NLP INGEST</span>
@@ -196,15 +199,15 @@ export default function Services() {
 
             {/* Brand Identity (5 cols) */}
             <motion.div variants={itemVariants} className="md:col-span-5">
-              <TiltedCard glowColor="rgba(255, 255, 255, 0.1)" className="p-8 md:p-10 h-full flex flex-col justify-between">
+              <TiltedCard glowColor="rgba(255, 255, 255, 0.1)" className="p-6 md:p-8 h-full flex flex-col justify-between border-white/10 hover:border-white/20">
                 <div>
                   <Palette className="size-8 text-zinc-300 mb-6 opacity-80" />
-                  <h3 className="text-xl font-semibold text-white mb-4">Brand Identity Systems</h3>
-                  <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                  <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">Brand Identity Systems</h3>
+                  <p className="text-[15px] font-light text-zinc-400 leading-relaxed">
                     Translating complex technological processes into sharp typographic frameworks and technical authority.
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-2 mt-8 font-mono text-[9px] text-zinc-500 tracking-wider">
+                <div className="flex flex-wrap gap-2 mt-6 font-mono text-[9px] text-zinc-500 tracking-wider">
                   <span className="px-2 py-1 rounded-sm border border-white/10 bg-white/5">TOKENS</span>
                   <span className="px-2 py-1 rounded-sm border border-white/10 bg-white/5">TYPOGRAPHY</span>
                 </div>
@@ -214,14 +217,14 @@ export default function Services() {
           </div>
 
           {/* Row 3: Utility Band & MSME Split */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
             
             <motion.div variants={itemVariants} className="md:col-span-5">
-              <TiltedCard glowColor="rgba(59, 130, 246, 0.15)" className="p-8 h-full flex flex-col justify-between">
+              <TiltedCard glowColor="rgba(59, 130, 246, 0.15)" className="p-6 h-full flex flex-col justify-between border-white/10 hover:border-white/20">
                 <div>
                   <Zap className="size-6 text-[var(--color-accent-blue)] mb-5 opacity-80" />
-                  <h3 className="text-lg font-semibold text-white mb-2">Performance Optimization</h3>
-                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                  <h3 className="text-xl font-bold text-white mb-2 tracking-tight">Performance Optimization</h3>
+                  <p className="text-[14px] font-light text-zinc-400 leading-relaxed">
                     Isolating and accelerating bottlenecks to achieve imperceptible latency.
                   </p>
                 </div>
@@ -233,11 +236,11 @@ export default function Services() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="md:col-span-7">
-              <TiltedCard disableTilt className="p-8 h-full flex flex-col justify-between bg-gradient-to-br from-[#0A1020]/80 to-[#02040A]">
+              <TiltedCard disableTilt className="p-6 h-full flex flex-col justify-between bg-gradient-to-br from-[#0A1020]/80 to-[#02040A] border-white/10 hover:border-white/20">
                 <div>
                   <Building2 className="size-6 text-zinc-400 mb-5 opacity-80" />
-                  <h3 className="text-lg font-semibold text-white mb-2">MSME Transformation</h3>
-                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-md">
+                  <h3 className="text-xl font-bold text-white mb-2 tracking-tight">MSME Transformation</h3>
+                  <p className="text-[14px] font-light text-zinc-400 leading-relaxed max-w-md">
                     Bridging traditional operations with modern software. Legacy porting and integrated automation for expanding enterprises.
                   </p>
                 </div>

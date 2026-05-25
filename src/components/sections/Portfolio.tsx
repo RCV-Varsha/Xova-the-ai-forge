@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { DiaTextReveal } from "@/components/animations/DiaTextReveal";
+import { Highlighter } from "@/components/animations/Highlighter";
 
 // Premium magnetic following inspection HUD container
 // Tracks the mouse relative to the card dimensions and moves a micro-hud display with visual delay.
@@ -108,30 +110,31 @@ export default function Portfolio() {
   };
 
   return (
-    <section className="relative w-full bg-transparent py-48 lg:py-64 overflow-hidden" id="portfolio">
+    <section className="relative w-full bg-transparent py-20 lg:py-24 overflow-hidden" id="portfolio">
       
       {/* Deep atmospheric backdrop - structural lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1200px] h-[800px] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.015)_0%,transparent_80%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.015)_0%,transparent_80%)] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-          className="mb-32 max-w-3xl"
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-20 max-w-3xl mx-auto text-center flex flex-col items-center"
         >
           <div className="mb-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),_0_0_15px_rgba(255,255,255,0.01)] border border-white/5 bg-white/[0.02] px-3.5 py-1.5 rounded-full">
             <span className="h-1.5 w-1.5 rounded-full bg-zinc-500"></span>
             [ PRODUCTION DEPLOYMENTS ]
           </div>
           <h2 className="mb-6 font-sans text-4xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-            Selected Systems
+            <DiaTextReveal text="Verified Production Systems" />
           </h2>
-          <p className="text-base text-zinc-400 font-normal tracking-wide leading-relaxed">
-            Realized architectures and bespoke software systems designed and deployed for active enterprise operations.
+          <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed">
+            Case studies of <Highlighter>operational architecture</Highlighter> developed for
+            rapid-growth ventures and institutional pipelines.
           </p>
         </motion.div>
 
@@ -141,14 +144,14 @@ export default function Portfolio() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-24 items-center mb-36 lg:mb-48"
+          className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12 items-center mb-36 lg:mb-48"
         >
           {/* Mockup */}
-          <motion.div variants={imageWrapperVariants} className="lg:col-span-7 order-1 relative group">
+          <motion.div variants={imageWrapperVariants} className="lg:col-span-8 order-1 relative group">
             {/* Atmospheric glow behind mockup */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-white/[0.03] to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             
-            <InspectionContainer className="relative overflow-hidden rounded-xl border border-white/10 bg-[#080d1a]/60 p-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_24px_50px_rgba(0,0,0,0.8),0_0_20px_rgba(255,255,255,0.01)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:border-white/15 group-hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_30px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(255,255,255,0.02)] group-hover:-translate-y-1">
+            <InspectionContainer className="relative overflow-hidden rounded-xl border border-white/[0.12] bg-[#050914] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_30px_60px_rgba(0,0,0,0.8)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:border-white/20 group-hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_40px_80px_rgba(0,0,0,0.9)] group-hover:-translate-y-1">
               
               {/* Technical Runtime Overlay */}
               <div className="absolute top-4 left-4 z-20 flex flex-col gap-1.5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
@@ -176,7 +179,7 @@ export default function Portfolio() {
           </motion.div>
 
           {/* Info */}
-          <motion.div variants={itemVariants} className="flex flex-col justify-center lg:col-span-5 order-2 space-y-8">
+          <motion.div variants={itemVariants} className="flex flex-col justify-center lg:col-span-4 order-2 space-y-8 pl-0 lg:pl-4">
             <div className="space-y-4">
               <div className="font-mono text-[9px] uppercase tracking-widest text-zinc-500">
                 [ CASE_01 // COMMERCE_INFRASTRUCTURE ]
@@ -224,10 +227,10 @@ export default function Portfolio() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-24 items-center"
+          className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12 items-center"
         >
           {/* Info */}
-          <motion.div variants={itemVariants} className="flex flex-col justify-center lg:col-span-5 order-2 lg:order-1 space-y-8">
+          <motion.div variants={itemVariants} className="flex flex-col justify-center lg:col-span-4 order-2 lg:order-1 space-y-8 pr-0 lg:pr-4">
             <div className="space-y-4">
               <div className="font-mono text-[9px] uppercase tracking-widest text-zinc-500">
                 [ CASE_02 // PUBLISHING_SYSTEMS ]
@@ -269,11 +272,11 @@ export default function Portfolio() {
           </motion.div>
 
           {/* Mockup */}
-          <motion.div variants={imageWrapperVariants} className="lg:col-span-7 order-1 lg:order-2 relative group">
+          <motion.div variants={imageWrapperVariants} className="lg:col-span-8 order-1 lg:order-2 relative group">
             {/* Atmospheric glow behind mockup */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-white/[0.03] to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             
-            <InspectionContainer className="relative overflow-hidden rounded-xl border border-white/10 bg-[#080d1a]/60 p-2 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_24px_50px_rgba(0,0,0,0.8),0_0_20px_rgba(255,255,255,0.01)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:border-white/15 group-hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.15),0_30px_60px_rgba(0,0,0,0.9),0_0_30px_rgba(255,255,255,0.02)] group-hover:-translate-y-1">
+            <InspectionContainer className="relative overflow-hidden rounded-xl border border-white/[0.12] bg-[#050914] p-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_30px_60px_rgba(0,0,0,0.8)] transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:border-white/20 group-hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_40px_80px_rgba(0,0,0,0.9)] group-hover:-translate-y-1">
               
               {/* Technical Runtime Overlay */}
               <div className="absolute top-4 right-4 z-20 flex flex-col gap-1.5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 items-end">

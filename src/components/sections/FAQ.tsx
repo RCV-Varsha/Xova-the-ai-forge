@@ -51,16 +51,16 @@ export default function FAQ() {
   };
 
   return (
-    <section className="relative w-full bg-transparent py-24 lg:py-40 overflow-hidden" id="faq">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full bg-transparent py-10 lg:py-12 overflow-hidden" id="faq">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 max-w-2xl"
+          className="mb-8 max-w-2xl"
         >
           <div className="mb-6 inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-widest text-[var(--color-accent-blue)] rounded-full border border-[var(--color-accent-blue)]/20 bg-[var(--color-accent-blue)]/5 px-3.5 py-1.5">
             INQUIRY REGISTRY
@@ -90,7 +90,7 @@ export default function FAQ() {
                   aria-expanded={isOpen}
                   className="group w-full flex items-center justify-between gap-6 py-6 text-left transition-colors duration-300"
                 >
-                  <span className={`text-base font-medium tracking-wide transition-colors duration-300 ${isOpen ? "text-white" : "text-zinc-300 group-hover:text-white"}`}>
+                  <span className={`text-lg font-medium tracking-wide transition-colors duration-300 ${isOpen ? "text-white" : "text-zinc-300 group-hover:text-white"}`}>
                     {faq.question}
                   </span>
                   <motion.div

@@ -2,8 +2,10 @@
 
 import React, { useEffect, useRef } from "react"
 import Link from "next/link"
-import { motion, useAnimation, useInView,Variants } from "framer-motion"
+import { motion, useAnimation, useInView, Variants } from "framer-motion"
 import { ArrowUpRight, Activity, Terminal, Shield } from "lucide-react"
+import { Meteors } from "@/components/animations/Meteors"
+import { TypingAnimation } from "@/components/animations/TypingAnimation"
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -41,8 +43,9 @@ export default function Hero() {
     <section 
       ref={containerRef}
       aria-label="Hero — XOVA Core Systems"
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden"
+      className="relative min-h-[85vh] flex items-center justify-center pt-24 pb-16 overflow-x-clip"
     >
+      <Meteors number={8} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -55,7 +58,7 @@ export default function Hero() {
             className="lg:col-span-6 flex flex-col items-start text-left pt-12 lg:pt-0"
           >
             {/* Status Badge */}
-            <motion.div variants={fadeUp} className="mb-6 relative group">
+            <motion.div variants={fadeUp} className="mb-4 relative group">
               <div aria-hidden="true" className="absolute -inset-1.5 bg-[var(--color-accent-cyan)]/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div
                 role="status"
@@ -82,17 +85,17 @@ export default function Hero() {
             </motion.h1>
 
             {/* Description */}
-            <motion.p 
+            <motion.div 
               variants={fadeUp}
-              className="mt-6 text-base sm:text-lg text-[var(--color-text-secondary)] font-light tracking-wide max-w-xl leading-relaxed"
+              className="mt-4 text-base sm:text-lg text-[var(--color-text-secondary)] font-light tracking-wide max-w-xl leading-relaxed"
             >
-              We build high-performance virtual architecture and agentic pipelines. System-native platforms engineered for precision, scale, and operational velocity.
-            </motion.p>
+              <TypingAnimation text="We build high-performance virtual architecture and agentic pipelines. System-native platforms engineered for precision, scale, and operational velocity." />
+            </motion.div>
 
             {/* CTAs */}
             <motion.div 
               variants={fadeUp}
-              className="mt-10 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+              className="mt-6 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
               <Link
                 href="/contact"
@@ -116,10 +119,13 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 relative h-[500px] lg:h-[600px] w-full mt-12 lg:mt-0"
+            className="lg:col-span-6 relative h-[500px] lg:h-[600px] w-full mt-12 lg:mt-0 z-10"
           >
             {/* Background Glow for Dashboard */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[var(--color-accent-blue)]/20 blur-[100px] rounded-full pointer-events-none" />
+            
+            {/* Vertical Atmospheric Bridge to Metrics */}
+            <div className="absolute top-[80%] left-[20%] w-[60%] h-[600px] bg-[var(--color-accent-cyan)]/10 blur-[120px] rounded-full pointer-events-none -z-10" />
 
             {/* Main Telemetry Panel */}
             <motion.div 

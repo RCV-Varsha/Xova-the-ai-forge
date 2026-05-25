@@ -1,7 +1,56 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Search, PenTool, Code2, Rocket, Zap, ArrowRight } from "lucide-react";
+import { TextReveal } from "@/components/animations/TextReveal";
+
+function TerminalSimulation({ activeStageId }: { activeStageId: string }) {
+  const [logs, setLogs] = useState<string[]>([]);
+  
+  const logMap: Record<string, string[]> = {
+    "01": ["[SYS_THREAD] initiating system audit...", "[TELEMETRY] measuring base latency", "[DIAGNOSTIC] mapping bottlenecks", "[OK] risk evaluation complete"],
+    "02": ["[SYS_THREAD] drafting virtual schemas...", "[ARCHITECT] compiling VPC bounds", "[SECURITY] validating API gateways", "[OK] blueprint secured"],
+    "03": ["[SYS_THREAD] assembling compute nodes...", "[DATABASE] clustering primary DBs", "[AI_CORE] building RAG pipelines", "[OK] engineering finalized"],
+    "04": ["[SYS_THREAD] mirroring production sandbox...", "[SECURITY] running automated pen-tests", "[ROUTING] establishing zero-downtime", "[OK] deployed to production"],
+    "05": ["[SYS_THREAD] tuning runtime latency...", "[NETWORK] warming edge caches", "[COMPUTE] scaling node arrays", "[OK] system optimized"],
+  };
+
+  useEffect(() => {
+    setLogs([]);
+    const currentLogs = logMap[activeStageId] || [];
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < currentLogs.length) {
+        setLogs(prev => [...prev, currentLogs[i]]);
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 600);
+    return () => clearInterval(interval);
+  }, [activeStageId]);
+
+  return (
+    <div className="mt-2 p-5 rounded-xl border border-white/[0.12] bg-[#050914] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_20px_40px_rgba(0,0,0,0.6)] h-36 overflow-hidden relative flex flex-col justify-end">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/[0.15] to-transparent" />
+      <div className="font-mono text-[10px] text-zinc-500 uppercase flex flex-col gap-2.5">
+        <AnimatePresence>
+          {logs.map((log, i) => (
+            <motion.div key={i} initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="flex gap-3">
+              <span className="text-zinc-700">{`>`}</span>
+              <span className={log?.includes("[OK]") ? "text-zinc-300" : "text-zinc-500"}>{log}</span>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+        <div className="flex gap-3 mt-1">
+          <span className="text-zinc-700">{`>`}</span>
+          <motion.div animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="w-1.5 h-3 bg-zinc-500" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const stages = [
   {
@@ -48,24 +97,28 @@ export default function Process() {
   };
 
   return (
-    <section className="relative w-full bg-transparent py-24 lg:py-40 overflow-hidden" id="process">
+    <section className="relative w-full bg-transparent py-16 lg:py-20 overflow-x-clip" id="process">
+      {/* Architectural vertical beam bridging from previous section */}
+      <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-px h-[300px] bg-gradient-to-b from-transparent via-[var(--color-accent-cyan)]/40 to-transparent pointer-events-none z-0" />
+      
+      {/* Background ambient lighting */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="mb-20 max-w-2xl">
+        <div className="mb-12 max-w-2xl">
           <div className="mb-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-[var(--color-accent-violet)] rounded-full border border-[var(--color-accent-violet)]/20 bg-[var(--color-accent-violet)]/5 px-4 py-1.5">
             PIPELINE PROTOCOL
           </div>
           <h2 className="mb-6 font-sans text-3xl font-bold tracking-tight text-white md:text-5xl">
             System Execution Pipeline
           </h2>
-          <p className="text-lg text-[var(--color-text-secondary)] font-light leading-relaxed">
-            Mapping how projects are initiated, designed, and executed with extreme architectural restraint.
-          </p>
+          <div className="text-lg text-[var(--color-text-secondary)] font-light leading-relaxed">
+            <TextReveal text="We execute sequentially via our Pipeline Protocol. A rigid operational framework designed to eliminate ambiguity, ensure rapid deployment, and guarantee architectural integrity." />
+          </div>
         </div>
 
         {/* Card Swap Interactive Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 h-[600px] items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 h-[600px] items-center">
           
           {/* Left Column: Progress List */}
           <div className="lg:col-span-5 flex flex-col gap-2">
@@ -97,8 +150,14 @@ export default function Process() {
             })}
           </div>
 
+          {/* Terminal Simulation Panel */}
+          <div className="lg:col-span-3 flex flex-col justify-end h-full">
+            <div className="text-[9px] font-mono tracking-widest text-zinc-600 uppercase mb-3 px-2">Live Telemetry Stream</div>
+            <TerminalSimulation activeStageId={stages[activeIndex].id} />
+          </div>
+
           {/* Right Column: Stacked Cards Display */}
-          <div className="lg:col-span-7 relative h-[450px] w-full perspective-1000">
+          <div className="lg:col-span-4 relative h-[450px] w-full perspective-1000">
             <div className="absolute inset-0 flex items-center justify-center">
               <AnimatePresence mode="popLayout">
                 {stages.map((stage, idx) => {
@@ -137,17 +196,17 @@ export default function Process() {
                       className="absolute w-full max-w-lg origin-top"
                       style={{ pointerEvents: offset === 0 ? "auto" : "none" }}
                     >
-                      <div className="rounded-2xl border border-white/10 bg-[#0A1020]/90 backdrop-blur-xl p-8 md:p-10 shadow-2xl shadow-black/50">
-                        <div className="mb-8 flex items-center justify-between font-mono text-[9px] uppercase tracking-widest text-zinc-500 border-b border-white/10 pb-4">
+                      <div className="rounded-2xl border border-white/[0.12] bg-[#050914] p-6 md:p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_30px_60px_rgba(0,0,0,0.8)]">
+                        <div className="mb-6 flex items-center justify-between font-mono text-[9px] uppercase tracking-widest text-zinc-500 border-b border-white/10 pb-4">
                           <span className="text-[var(--color-accent-cyan)]">PHASE_{stage.id} // {stage.name}</span>
                           <span>{offset === 0 ? "ACTIVE" : "QUEUED"}</span>
                         </div>
                         
-                        <h3 className="text-2xl font-semibold text-white mb-4 tracking-tight">
+                        <h3 className="text-2xl font-semibold text-white mb-3 tracking-tight">
                           {stage.name} Phase
                         </h3>
                         
-                        <p className="text-[var(--color-text-secondary)] leading-relaxed mb-10 min-h-[100px]">
+                        <p className="text-[var(--color-text-secondary)] leading-relaxed mb-6 min-h-[100px]">
                           {stage.desc}
                         </p>
                         

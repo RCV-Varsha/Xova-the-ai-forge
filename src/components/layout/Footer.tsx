@@ -27,11 +27,11 @@ export default function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="relative w-full bg-[#080d1a]/40 py-16 md:py-24 border-t border-white/[0.04]"
+      className="relative w-full bg-[#080d1a]/40 py-8 md:py-12 border-t border-white/[0.04]"
       id="about"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16 items-start mb-16">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12 items-start mb-10">
           {/* Left Column: Branding and Corporate Address */}
           <div className="col-span-12 md:col-span-6 flex flex-col space-y-6">
             {/* Branding Mark */}
