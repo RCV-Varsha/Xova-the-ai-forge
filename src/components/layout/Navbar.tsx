@@ -60,8 +60,8 @@ export default function Navbar() {
           "pointer-events-auto flex items-center justify-between transition-all duration-500 ease-out",
           "w-full max-w-5xl rounded-full border border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)]",
           isScrolled 
-            ? "bg-[#0A1020]/70 backdrop-blur-xl py-2.5 px-4" 
-            : "bg-[#050816]/50 backdrop-blur-md py-3 px-5"
+            ? "bg-[#0A1020]/70 backdrop-blur-xl py-3 px-5" 
+            : "bg-[#050816]/50 backdrop-blur-md py-4 px-6"
         )}
       >
           
@@ -77,19 +77,19 @@ export default function Navbar() {
                 className="h-auto w-auto object-contain"
               />
             </div>
-            <span className="text-[10px] font-semibold tracking-[0.25em] text-white uppercase transition-colors duration-300 group-hover:text-[var(--color-accent-cyan)]">
+            <span className="text-base font-semibold tracking-[0.25em] text-white uppercase transition-colors duration-300 group-hover:text-[var(--color-accent-cyan)]">
               XOVA
             </span>
           </Link>
         </div>
 
         {/* Center Navigation: Desktop only */}
-        <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-1 bg-white/[0.02] rounded-full px-2 py-1 border border-white/[0.03]">
+        <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-2 bg-white/[0.02] rounded-full px-3 py-1.5 border border-white/[0.03]">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="relative px-4 py-1.5 text-xs font-medium tracking-wide text-[var(--color-text-secondary)] hover:text-white transition-colors duration-200 focus-visible:text-white group rounded-full"
+              className="relative px-5 py-1.5 text-sm font-medium tracking-wide text-[var(--color-text-secondary)] hover:text-white transition-colors duration-200 focus-visible:text-white group rounded-full"
             >
               <span className="relative z-10">{item.name}</span>
               <span className="absolute inset-0 rounded-full bg-white/[0.06] opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
@@ -103,11 +103,11 @@ export default function Navbar() {
           {/* Minimalist Dark Glass CTA */}
           <Button
             asChild
-            className="hidden md:inline-flex items-center justify-center rounded-full border border-[var(--color-accent-cyan)]/20 bg-[var(--color-accent-cyan)]/5 text-[var(--color-accent-cyan)] hover:bg-[var(--color-accent-cyan)]/15 hover:border-[var(--color-accent-cyan)]/40 font-medium text-[11px] tracking-widest uppercase px-5 h-8.5 transition-all duration-300 active:scale-[0.98] shadow-[0_0_20px_rgba(34,211,238,0.0)] hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+            className="hidden md:inline-flex items-center justify-center rounded-full border border-[var(--color-accent-cyan)]/20 bg-[var(--color-accent-cyan)]/5 text-[var(--color-accent-cyan)] hover:bg-[var(--color-accent-cyan)]/15 hover:border-[var(--color-accent-cyan)]/40 font-medium text-[14px] tracking-wide uppercase px-6 h-9 transition-all duration-300 active:scale-[0.98] shadow-[0_0_20px_rgba(34,211,238,0.0)] hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
           >
             <Link href="/initiate" className="flex items-center gap-1.5">
               Initiate
-              <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" aria-hidden="true" />
+              <ArrowUpRight className="size-4 transition-transform duration-200 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" aria-hidden="true" />
             </Link>
           </Button>
 

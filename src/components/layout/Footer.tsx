@@ -42,7 +42,7 @@ export default function Footer() {
               <div className="relative flex size-10 items-center justify-center select-none transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.5)] drop-shadow-[0_0_8px_rgba(34,211,238,0.2)]">
                 <Image src="/logo/xova-logo.png" alt="XOVA Logo" width={32} height={32} className="object-contain opacity-90" />
               </div>
-              <span className="text-xs font-semibold tracking-[0.25em] text-white uppercase transition-colors duration-300 group-hover:text-white/80">
+              <span className="text-base font-semibold tracking-[0.25em] text-white uppercase transition-colors duration-300 group-hover:text-white/80">
                 XOVA
               </span>
             </Link>
