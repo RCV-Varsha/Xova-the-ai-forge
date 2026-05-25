@@ -1,4 +1,5 @@
 import Navbar from "@/components/layout/Navbar";
+import GlobalEnvironment from "@/components/layout/GlobalEnvironment";
 import Hero from "@/components/sections/Hero";
 import Metrics from "@/components/sections/Metrics";
 import Services from "@/components/sections/Services";
@@ -10,8 +11,12 @@ import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-[#020617] text-white min-h-screen overflow-hidden">
-      <Navbar />
+    <main className="bg-[#02040a] text-white min-h-screen overflow-hidden relative">
+      {/* Global Environmental Intelligence Layer */}
+      <GlobalEnvironment />
+
+      <div className="relative z-10">
+        <Navbar />
       <Hero />
       <Metrics />
       <Services />
@@ -20,6 +25,7 @@ export default function Home() {
       <Process />
       <FAQ />
       <Footer />
+      </div>
     </main>
   );
 }

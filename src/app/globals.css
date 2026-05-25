@@ -1,10 +1,91 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
+@theme {
+  --color-bg-base: #02040A;
+  --color-bg-elevated: #050816;
+  --color-bg-surface: #0A1020;
+  
+  --color-accent-cyan: #22D3EE;
+  --color-accent-blue: #3B82F6;
+  --color-accent-violet: #8B5CF6;
+  
+  --color-text-primary: rgba(255, 255, 255, 0.92);
+  --color-text-secondary: rgba(255, 255, 255, 0.62);
+  --color-text-muted: rgba(255, 255, 255, 0.38);
 }
 
+/* ─── Scroll ─────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* ─── Base ───────────────────────────────────────────── */
 body {
-  background: #020617;
-  color: white;
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ─── Selection ──────────────────────────────────────── */
+::selection {
+  background: rgba(0, 255, 208, 0.15);
+  color: #fff;
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #02040a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ─── Focus Ring (Accessibility) ─────────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(0, 255, 208, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Remove focus ring for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─── Reduced Motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Keyframes ──────────────────────────────────────── */
+@keyframes ambient-breathe {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.animate-ambient-breathe {
+  animation: ambient-breathe 12s ease-in-out infinite;
+}
+
+/* ─── Responsive type helpers ────────────────────────── */
+@media (max-width: 640px) {
+  h1 { line-height: 1.08; }
+  h2 { line-height: 1.12; }
 }
