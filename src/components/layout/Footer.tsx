@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,17 +28,19 @@ export default function Footer() {
   return (
     <footer
       role="contentinfo"
-      className="relative w-full bg-[#080d1a]/40 py-8 md:py-12 border-t border-white/[0.04]"
+      className="relative w-full bg-[#050812] py-8 md:py-12 border-t border-white/[0.04]"
       id="about"
     >
+      {/* Glowing Top Divider */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/30 to-transparent shadow-[0_0_20px_rgba(34,211,238,0.5)]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12 items-start mb-10">
           {/* Left Column: Branding and Corporate Address */}
           <div className="col-span-12 md:col-span-6 flex flex-col space-y-6">
             {/* Branding Mark */}
             <Link href="/" className="group flex items-center gap-3 w-fit" aria-label="XOVA Digital Solutions — home">
-              <div className="relative flex h-8 w-8 items-center justify-center rounded border border-white/10 bg-transparent select-none transition-colors duration-300 group-hover:border-white/20">
-                <span className="font-mono text-xs font-bold text-white tracking-widest">X</span>
+              <div className="relative flex size-10 items-center justify-center select-none transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.5)] drop-shadow-[0_0_8px_rgba(34,211,238,0.2)]">
+                <Image src="/logo/xova-logo.png" alt="XOVA Logo" width={32} height={32} className="object-contain opacity-90" />
               </div>
               <span className="text-xs font-semibold tracking-[0.25em] text-white uppercase transition-colors duration-300 group-hover:text-white/80">
                 XOVA
@@ -58,9 +61,13 @@ export default function Footer() {
                 Andhra Pradesh, India
               </span>
 
-              <div className="inline-flex pt-2 select-none">
-                <span className="rounded border border-green-500/10 bg-green-500/5 px-2.5 py-1 font-mono text-[8px] tracking-widest text-green-400 uppercase">
-                  ● Available for collaborations
+              <div className="inline-flex pt-3 select-none items-center gap-3">
+                <span className="rounded border border-[var(--color-accent-cyan)]/20 bg-[var(--color-accent-cyan)]/10 px-2.5 py-1.5 font-mono text-[8px] tracking-widest text-[var(--color-accent-cyan)] uppercase flex items-center gap-2 shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+                  <span className="size-1.5 rounded-full bg-[var(--color-accent-cyan)] animate-pulse" />
+                  SYSTEM STATUS: OPERATIONAL
+                </span>
+                <span className="font-mono text-[9px] text-zinc-600 tracking-widest">
+                  v_XOVA_1.0
                 </span>
               </div>
             </address>

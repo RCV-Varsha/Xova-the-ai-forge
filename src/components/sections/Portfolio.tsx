@@ -110,7 +110,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section className="relative w-full bg-transparent py-20 lg:py-24 overflow-hidden" id="portfolio">
+    <section className="relative w-full bg-transparent pt-8 pb-10 lg:pt-12 lg:pb-16 overflow-hidden" id="portfolio">
       
       {/* Deep atmospheric backdrop - structural lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.015)_0%,transparent_80%)] pointer-events-none" />
@@ -123,7 +123,7 @@ export default function Portfolio() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-20 max-w-3xl mx-auto text-center flex flex-col items-center"
+          className="mb-12 max-w-3xl mx-auto text-center flex flex-col items-center"
         >
           <div className="mb-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-zinc-500 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),_0_0_15px_rgba(255,255,255,0.01)] border border-white/5 bg-white/[0.02] px-3.5 py-1.5 rounded-full">
             <span className="h-1.5 w-1.5 rounded-full bg-zinc-500"></span>
@@ -144,7 +144,7 @@ export default function Portfolio() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12 items-center mb-36 lg:mb-48"
+          className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-8 items-center mb-16 lg:mb-20"
         >
           {/* Mockup */}
           <motion.div variants={imageWrapperVariants} className="lg:col-span-8 order-1 relative group">
@@ -164,14 +164,21 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <div className="relative w-full overflow-hidden rounded-lg bg-zinc-900 border border-black/50">
+              <div className="relative w-full overflow-hidden rounded-lg bg-[#0A0A0A] border border-white/10">
+                {/* Minimal Browser Frame Top Bar */}
+                <div className="h-6 w-full border-b border-white/[0.08] bg-white/[0.02] flex items-center px-3 gap-1.5 backdrop-blur-md">
+                  <div className="size-1.5 rounded-full bg-zinc-700" />
+                  <div className="size-1.5 rounded-full bg-zinc-700" />
+                  <div className="size-1.5 rounded-full bg-zinc-700" />
+                  <div className="ml-auto font-mono text-[8px] text-zinc-600 tracking-wider">production_env</div>
+                </div>
                 <Image
                   src="/portfolio/printmaania.png"
                   alt="PrintMaania Customized Commerce Website"
                   width={1920}
                   height={1080}
                   unoptimized
-                  className="w-full h-auto rounded-lg object-cover object-top opacity-90 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.015] group-hover:opacity-100"
+                  className="w-full h-auto object-cover object-top opacity-90 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.015] group-hover:opacity-100"
                   priority
                 />
               </div>
@@ -190,9 +197,20 @@ export default function Portfolio() {
               <p className="text-base text-zinc-300 font-normal leading-snug">
                 Commerce infrastructure for personalized printing.
               </p>
-              <p className="text-sm leading-relaxed text-zinc-400 font-normal tracking-wide">
-                Engineered a complete digital foundation mapping user flows from landing to bulk order placement. Focus on catalog routing and secure checkout pipelines.
-              </p>
+              <ul className="space-y-2 mt-4 font-mono text-[10px] text-zinc-400">
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--color-accent-cyan)] mt-0.5">✔</span>
+                  <span className="leading-relaxed">Engineered scalable digital foundation and user routing.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--color-accent-cyan)] mt-0.5">✔</span>
+                  <span className="leading-relaxed">Optimized bulk catalog processing and checkout pipelines.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--color-accent-cyan)] mt-0.5">✔</span>
+                  <span className="leading-relaxed">Delivered zero-friction transactional architecture.</span>
+                </li>
+              </ul>
             </div>
 
             {/* Testimonial */}
@@ -227,7 +245,7 @@ export default function Portfolio() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12 items-center"
+          className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-8 items-center"
         >
           {/* Info */}
           <motion.div variants={itemVariants} className="flex flex-col justify-center lg:col-span-4 order-2 lg:order-1 space-y-8 pr-0 lg:pr-4">
@@ -239,11 +257,22 @@ export default function Portfolio() {
                 Inventum Publishers
               </h3>
               <p className="text-base text-zinc-300 font-normal leading-snug">
-                Editorial publishing platform and journal workflow interface.
+                Editorial publishing platform and journal workflow.
               </p>
-              <p className="text-sm leading-relaxed text-zinc-400 font-normal tracking-wide">
-                Restructured manuscript submission routing and journal directory systems, delivering a unified portal and clear information architecture for academic processing.
-              </p>
+              <ul className="space-y-2 mt-4 font-mono text-[10px] text-zinc-400">
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--color-accent-violet)] mt-0.5">✔</span>
+                  <span className="leading-relaxed">Restructured manuscript submission routing.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--color-accent-violet)] mt-0.5">✔</span>
+                  <span className="leading-relaxed">Unified portal for structured academic processing.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--color-accent-violet)] mt-0.5">✔</span>
+                  <span className="leading-relaxed">Eliminated layout shift with rigorous alignment rules.</span>
+                </li>
+              </ul>
             </div>
 
             {/* Testimonial */}
@@ -288,14 +317,21 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <div className="relative w-full overflow-hidden rounded-lg bg-zinc-900 border border-black/50">
+              <div className="relative w-full overflow-hidden rounded-lg bg-[#0A0A0A] border border-white/10">
+                {/* Minimal Browser Frame Top Bar */}
+                <div className="h-6 w-full border-b border-white/[0.08] bg-white/[0.02] flex items-center px-3 gap-1.5 backdrop-blur-md">
+                  <div className="size-1.5 rounded-full bg-zinc-700" />
+                  <div className="size-1.5 rounded-full bg-zinc-700" />
+                  <div className="size-1.5 rounded-full bg-zinc-700" />
+                  <div className="ml-auto font-mono text-[8px] text-zinc-600 tracking-wider">editorial_portal</div>
+                </div>
                 <Image
                   src="/portfolio/inventum.png"
                   alt="Inventum Publishers Publication Portal"
                   width={1024}
                   height={473}
                   unoptimized
-                  className="w-full h-auto rounded-lg object-cover object-top opacity-90 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.015] group-hover:opacity-100"
+                  className="w-full h-auto object-cover object-top opacity-90 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.015] group-hover:opacity-100"
                 />
               </div>
             </InspectionContainer>

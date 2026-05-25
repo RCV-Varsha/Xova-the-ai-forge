@@ -69,7 +69,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section
-      className="relative w-full bg-transparent py-12 lg:py-16 overflow-hidden"
+      className="relative w-full bg-transparent pt-8 pb-10 lg:pt-12 lg:pb-16 overflow-hidden"
       id="testimonials"
     >
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
@@ -77,13 +77,13 @@ export default function Testimonials() {
 
         {/* Section Header */}
         <div className="mb-12 max-w-2xl">
-          <div className="mb-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-[var(--color-accent-blue)] rounded-full border border-[var(--color-accent-blue)]/20 bg-[var(--color-accent-blue)]/5 px-4 py-1.5">
+          <div className="mb-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-accent-blue)] rounded-full border border-[var(--color-accent-blue)]/20 bg-[var(--color-accent-blue)]/5 px-4 py-1.5">
             CLIENT_RECORDS
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-5">
+          <h2 className="text-5xl lg:text-6xl font-bold tracking-tight text-white mb-5">
             System Validation
           </h2>
-          <p className="text-lg text-[var(--color-text-secondary)] font-light leading-relaxed">
+          <p className="text-base lg:text-lg text-zinc-400 font-light leading-relaxed max-w-2xl">
             Feedback from founders and editors operating live XOVA-built infrastructure.
           </p>
         </div>
@@ -111,7 +111,7 @@ export default function Testimonials() {
 
               <div className="relative z-10 flex flex-col gap-6">
                 {/* Card meta */}
-                <div className="flex items-center justify-between font-mono text-[9px] uppercase tracking-widest text-zinc-600">
+                <div className="flex items-center justify-between font-mono uppercase tracking-[0.25em] text-[11px] text-zinc-500">
                   <span className="text-[var(--color-accent-cyan)]/60">{t.tag}</span>
                   <span className="border border-white/5 bg-white/[0.02] px-2 py-0.5 rounded text-zinc-500">
                     {t.id}
@@ -124,7 +124,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-lg md:text-xl text-zinc-200 font-light leading-relaxed italic">
+                <blockquote className="text-zinc-200 text-base lg:text-lg leading-relaxed italic">
                   {t.quote}
                 </blockquote>
 
@@ -132,7 +132,7 @@ export default function Testimonials() {
                 <div className="border-t border-white/[0.06] pt-6 flex items-end justify-between">
                   <div>
                     <p className="text-sm font-semibold text-white">{t.attribution}</p>
-                    <p className="font-mono text-[9px] uppercase tracking-widest text-zinc-500 mt-1">
+                    <p className="font-mono uppercase tracking-[0.25em] text-[11px] text-zinc-500 mt-1">
                       {t.location}
                     </p>
                   </div>
@@ -140,7 +140,7 @@ export default function Testimonials() {
                     <p className="text-2xl font-bold text-white tracking-tight">
                       {t.stat.value}
                     </p>
-                    <p className="font-mono text-[9px] uppercase tracking-widest text-zinc-500">
+                    <p className="font-mono uppercase tracking-[0.25em] text-[11px] text-zinc-500">
                       {t.stat.label}
                     </p>
                   </div>

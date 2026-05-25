@@ -57,7 +57,7 @@ export default function Metrics() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.015)_0%,transparent_80%)] pointer-events-none" />
       
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10 py-8 lg:py-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 py-10 lg:py-16">
         <motion.div 
           className="flex flex-col md:flex-row justify-between items-center rounded-2xl border border-white/[0.12] bg-[#050914] py-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_20px_40px_rgba(0,0,0,0.8)] relative overflow-hidden"
           variants={containerVariants}

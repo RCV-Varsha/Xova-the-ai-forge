@@ -105,7 +105,7 @@ export default function Navbar() {
             asChild
             className="hidden md:inline-flex items-center justify-center rounded-full border border-[var(--color-accent-cyan)]/20 bg-[var(--color-accent-cyan)]/5 text-[var(--color-accent-cyan)] hover:bg-[var(--color-accent-cyan)]/15 hover:border-[var(--color-accent-cyan)]/40 font-medium text-[11px] tracking-widest uppercase px-5 h-8.5 transition-all duration-300 active:scale-[0.98] shadow-[0_0_20px_rgba(34,211,238,0.0)] hover:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
           >
-            <Link href="/contact" className="flex items-center gap-1.5">
+            <Link href="/initiate" className="flex items-center gap-1.5">
               Initiate
               <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" aria-hidden="true" />
             </Link>
@@ -172,8 +172,8 @@ export default function Navbar() {
                   className="w-full rounded-full border border-[var(--color-accent-cyan)]/20 bg-[var(--color-accent-cyan)]/10 text-[var(--color-accent-cyan)] hover:bg-[var(--color-accent-cyan)]/20 font-medium text-xs tracking-wide h-10 transition-all duration-200"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Link href="/contact" className="flex items-center justify-center gap-1.5 w-full">
-                    Initiate Project
+                  <Link href="/initiate" className="flex items-center justify-center gap-1.5 w-full">
+                    Initiate Deployment
                     <ArrowUpRight className="size-3.5" aria-hidden="true" />
                   </Link>
                 </Button>

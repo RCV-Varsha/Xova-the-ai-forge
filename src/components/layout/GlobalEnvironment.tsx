@@ -20,7 +20,7 @@ export default function GlobalEnvironment() {
     
     // Reduce particle count on mobile for performance
     const isMobile = width < 768;
-    const PARTICLE_COUNT = isMobile ? 15 : 40;
+    const PARTICLE_COUNT = isMobile ? 20 : 60;
     
     // Magnetic mouse target
     let mouse = { x: width / 2, y: height / 2 };
@@ -63,15 +63,21 @@ export default function GlobalEnvironment() {
       opacity: number;
       phase: number;
 
+      isTelemetry: boolean;
+
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.size = Math.random() * 2 + 0.5;
-        this.vx = (Math.random() - 0.5) * 0.2;
-        this.vy = (Math.random() - 0.5) * 0.2 - 0.1; // Slight upward drift
-        this.opacity = Math.random() * 0.5 + 0.1;
+        
+        // 15% of particles are "telemetry" nodes: brighter, faster, curved
+        this.isTelemetry = Math.random() > 0.85;
+        
+        this.size = this.isTelemetry ? Math.random() * 2 + 1.5 : Math.random() * 2 + 0.8;
+        this.vx = (Math.random() - 0.5) * (this.isTelemetry ? 0.4 : 0.2);
+        this.vy = (Math.random() - 0.5) * 0.2 - (this.isTelemetry ? 0.3 : 0.1); 
+        this.opacity = this.isTelemetry ? Math.random() * 0.4 + 0.5 : Math.random() * 0.3 + 0.2;
         this.phase = Math.random() * Math.PI * 2;
       }
 
@@ -97,8 +103,14 @@ export default function GlobalEnvironment() {
         this.vx *= 0.98;
         this.vy *= 0.98;
         
-        // Base drift
-        this.y -= 0.1;
+        // Base drift and curved movement for telemetry
+        if (this.isTelemetry) {
+           this.x += Math.sin(this.phase * 0.5) * 0.4;
+           this.y -= 0.35;
+        } else {
+           this.x += Math.sin(this.phase * 0.2) * 0.1;
+           this.y -= 0.15;
+        }
 
         // Wrap around screen
         if (this.y < -10) this.y = height + 10;
@@ -115,8 +127,10 @@ export default function GlobalEnvironment() {
         const currentOpacity = this.opacity + Math.sin(this.phase) * 0.1;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        // Using the Cyan token color for particles
-        ctx.fillStyle = `rgba(34, 211, 238, ${Math.max(0, currentOpacity)})`; 
+        // Using Violet for telemetry nodes, Cyan for standard nodes
+        ctx.fillStyle = this.isTelemetry 
+          ? `rgba(139, 92, 246, ${Math.max(0, currentOpacity)})` 
+          : `rgba(34, 211, 238, ${Math.max(0, currentOpacity)})`; 
         ctx.fill();
       }
     }
@@ -134,6 +148,16 @@ export default function GlobalEnvironment() {
         p.update();
         p.draw();
       });
+
+      // Desktop Cursor Atmosphere Glow
+      if (isMouseActive && window.innerWidth > 768) {
+        const radius = 300;
+        const gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, radius);
+        gradient.addColorStop(0, 'rgba(34, 211, 238, 0.035)');
+        gradient.addColorStop(1, 'rgba(34, 211, 238, 0)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(mouse.x - radius, mouse.y - radius, radius * 2, radius * 2);
+      }
       
       animationFrameId = requestAnimationFrame(render);
     };
@@ -158,20 +182,20 @@ export default function GlobalEnvironment() {
         }}
       />
       
-      {/* 2. Soft Radial Blur / Atmospheric Lighting */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-40">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--color-accent-blue)] blur-[150px] opacity-20mix-blend-screen" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-[var(--color-accent-violet)] blur-[150px] opacity-10 mix-blend-screen" />
+      {/* 2. Soft Radial Blur / Atmospheric Lighting (Suppressed) */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-20">
+        <div className="absolute top-[-10%] left-[-10%] w-[30%] h-[30%] rounded-full bg-[var(--color-accent-blue)] blur-[80px] opacity-10 mix-blend-screen" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[25%] h-[25%] rounded-full bg-[var(--color-accent-violet)] blur-[80px] opacity-10 mix-blend-screen" />
       </div>
 
       {/* 3. Subtle Grid Texture (Depth) */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.015] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
       {/* 4. Canvas Antigravity Particle Engine */}
       <canvas
         ref={canvasRef}
         className="fixed inset-0 z-0 pointer-events-none"
-        style={{ opacity: 0.6 }} // Kept subtle to avoid noise
+        style={{ opacity: 0.8 }} // Kept subtle to avoid noise
       />
     </>
   );
