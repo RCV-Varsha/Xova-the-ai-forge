@@ -19,7 +19,7 @@ export default function Hero() {
   }, [inView, controls])
 
   // Framer Motion Variants
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -27,38 +27,14 @@ export default function Hero() {
     },
   }
 
-  const fadeUp = {
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
     visible: { 
       opacity: 1, 
       y: 0, 
       filter: "blur(0px)",
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } 
     },
-  }
-
-  // Floating Dashboard Animation
-  const floatingPanel = {
-    animate: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 6,
-        ease: "easeInOut",
-        repeat: Infinity,
-      }
-    }
-  }
-
-  const floatingPanelReverse = {
-    animate: {
-      y: [0, 10, 0],
-      transition: {
-        duration: 7,
-        ease: "easeInOut",
-        repeat: Infinity,
-        delay: 1,
-      }
-    }
   }
 
   return (
@@ -147,8 +123,8 @@ export default function Hero() {
 
             {/* Main Telemetry Panel */}
             <motion.div 
-              variants={floatingPanel}
-              animate="animate"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
               className="absolute top-[10%] right-[5%] w-[85%] lg:w-[90%] rounded-xl border border-white/10 bg-[#050816]/60 backdrop-blur-xl shadow-2xl overflow-hidden z-20"
             >
               {/* Top Bar */}
@@ -208,8 +184,8 @@ export default function Hero() {
 
             {/* Floating Terminal Widget */}
             <motion.div 
-              variants={floatingPanelReverse}
-              animate="animate"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 7, ease: "easeInOut", repeat: Infinity, delay: 1 }}
               className="absolute bottom-[15%] left-0 w-[60%] rounded-lg border border-white/10 bg-[#02040A]/90 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.5)] z-30 overflow-hidden"
             >
               <div className="p-3 border-b border-white/[0.05] flex items-center gap-2">
