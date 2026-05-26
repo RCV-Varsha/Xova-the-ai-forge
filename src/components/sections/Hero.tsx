@@ -101,36 +101,36 @@ export default function Hero() {
               className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto relative z-30 pointer-events-auto"
             >
               <Link
-                href="/initiate"
+                href="/services"
                 className="relative inline-flex items-center justify-center gap-2 rounded-full bg-white text-black hover:bg-zinc-100 font-semibold text-xs tracking-wider uppercase px-8 h-12 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.25)] hover:-translate-y-0.5 active:scale-95 group overflow-hidden"
               >
                 <motion.div 
                   animate={{ x: ["-150%", "250%"] }} 
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "linear", repeatDelay: 1.5 }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
                   className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent -skew-x-12" 
                 />
                 <span className="relative z-10 flex items-center gap-2">
-                  Initiate Project
+                  Explore Services
                   <ArrowUpRight className="size-4" />
                 </span>
               </Link>
 
               <Link
-                href="#services"
+                href="/initiate"
                 className="inline-flex items-center justify-center rounded-full border border-white/[0.08] bg-transparent text-zinc-300 hover:bg-white/[0.03] hover:text-white hover:border-white/[0.15] font-medium text-xs tracking-wider uppercase px-8 h-12 transition-all duration-300 active:scale-95 backdrop-blur-sm"
               >
-                Explore Systems
+                Initiate Project
               </Link>
             </motion.div>
 
             {/* Trust / Metadata Metrics */}
             <motion.div
               variants={fadeUp}
-              className="mt-14 flex flex-wrap items-center gap-6 border-t border-white/[0.04] pt-6 relative z-30 opacity-70"
+              className="mt-12 flex flex-wrap items-center gap-6 border-t border-white/[0.04] pt-6 relative z-30 opacity-60"
             >
-              <span className="font-mono text-[10px] tracking-[0.2em] text-zinc-400 uppercase">[ ACTIVE SYSTEMS ]</span>
-              <span className="font-mono text-[10px] tracking-[0.2em] text-zinc-400 uppercase">[ LATENCY &lt; 20ms ]</span>
-              <span className="font-mono text-[10px] tracking-[0.2em] text-zinc-400 uppercase">[ 99.99% UPTIME ]</span>
+              <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-zinc-400 uppercase">
+                Hospitality • Educare • B2B • Agriculture
+              </span>
             </motion.div>
 
           </motion.div>
@@ -154,8 +154,8 @@ export default function Hero() {
             {/* TELEMETRY SWEEP */}
             <motion.div
               animate={{ left: ["-100%", "200%"] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              className="absolute top-0 bottom-0 w-[40%] bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)] to-transparent opacity-[0.04] blur-[30px] pointer-events-none z-0"
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              className="absolute top-0 bottom-0 w-[40%] bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)] to-transparent opacity-[0.03] blur-[40px] pointer-events-none z-0"
             />
 
             {/* Faint Architectural Grid behind console */}
@@ -171,7 +171,7 @@ export default function Hero() {
                 transition={{ 
                   opacity: { duration: 1.2, delay: 0.5 },
                   x: { duration: 1.2, delay: 0.5 },
-                  y: { duration: 6, repeat: Infinity, ease: "easeInOut" } 
+                  y: { duration: 12, repeat: Infinity, ease: "easeInOut" } 
                 }}
                 className="absolute left-0 top-0 translate-x-6 -translate-y-[24px] w-48 h-28 rounded-lg border border-white/10 bg-[#050816]/80 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.8),inset_0_0_15px_rgba(255,255,255,0.02)] z-10 hidden md:flex flex-col p-4"
               >
@@ -192,7 +192,7 @@ export default function Hero() {
                 transition={{ 
                   opacity: { duration: 1.2, delay: 0.7 },
                   x: { duration: 1.2, delay: 0.7 },
-                  y: { duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 } 
+                  y: { duration: 16, repeat: Infinity, ease: "easeInOut", delay: 1 } 
                 }}
                 className="absolute right-0 bottom-0 translate-x-10 translate-y-[18px] w-56 h-auto rounded-lg border border-[var(--color-accent-violet)]/20 bg-[#050816]/80 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.8),inset_0_0_15px_rgba(139,92,246,0.03)] z-10 hidden md:flex flex-col p-4"
               >
@@ -213,7 +213,7 @@ export default function Hero() {
               {/* Unified Telemetry Console (Dominant Center, z-20) */}
               <motion.div 
                 animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 7, ease: "easeInOut", repeat: Infinity }}
+                transition={{ duration: 14, ease: "easeInOut", repeat: Infinity }}
                 className="relative w-full rounded-xl border border-white/15 bg-[#050816]/70 backdrop-blur-xl shadow-[0_30px_60px_rgba(0,0,0,0.7),inset_0_0_20px_rgba(255,255,255,0.02)] z-20 overflow-hidden flex flex-col pointer-events-auto"
               >
                 {/* Top Bar */}

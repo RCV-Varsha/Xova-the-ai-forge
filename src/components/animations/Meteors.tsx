@@ -40,25 +40,25 @@ export function Meteors({ number = 5, className }: MeteorsProps) {
             scale: 0.8,
           }}
           animate={{
-            opacity: [0, 0.4, 0], // Kept very soft and low opacity
-            x: -800, // Move left
-            y: 800, // Move down
+            opacity: [0, 0.6, 0], // Increased opacity for better visibility
+            x: -800,
+            y: 800,
             scale: 1,
           }}
           transition={{
             duration: meteor.duration,
             delay: meteor.delay,
             repeat: Infinity,
-            ease: "linear",
+            ease: [0.25, 0.1, 0.25, 1], // Cinematic ease instead of linear
           }}
           style={{
             top: `${meteor.top}%`,
             left: `${meteor.left}%`,
           }}
           className={cn(
-            "absolute size-[2px] rounded-full bg-slate-300 shadow-[0_0_0_1px_#ffffff10]",
-            "rotate-[215deg] blur-[1px]", // Soft blur
-            "before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:w-[80px] before:h-[1px] before:bg-gradient-to-r before:from-slate-300/40 before:to-transparent"
+            "absolute size-[2px] rounded-full bg-[var(--color-accent-cyan)] shadow-[0_0_8px_var(--color-accent-cyan)]",
+            "rotate-[215deg] blur-[1px]",
+            "before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:w-[120px] before:h-[1px] before:bg-gradient-to-r before:from-[var(--color-accent-cyan)]/60 before:to-transparent"
           )}
         />
       ))}
