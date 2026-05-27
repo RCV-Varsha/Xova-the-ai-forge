@@ -209,7 +209,7 @@ export default function Services() {
                          <span className="text-white">XOVA_SYS</span>
                       </div>
                       
-                      <Link href={`/services#${item.id}`} className="group/btn inline-flex items-center justify-between border-t border-white/[0.05] pt-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">
+                      <Link href={`/services/${item.id}`} className="group/btn inline-flex items-center justify-between border-t border-white/[0.05] pt-4 text-xs font-semibold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors">
                         <span>Explore Arch</span>
                         <ArrowRight className="size-3.5 group-hover/btn:translate-x-1 transition-transform" />
                       </Link>

@@ -7,6 +7,7 @@ import { ArrowRight, Activity, Network } from "lucide-react";
 import { IndustryService } from "@/types/service";
 
 import { Globe } from "@/components/ui/globe";
+import { ProjectScopingConsole } from "@/components/services/ProjectScopingConsole";
 
 // Magnetic Button Wrapper
 function MagneticButton({ children, href }: { children: React.ReactNode, href: string }) {
@@ -153,16 +154,9 @@ export default function CTASection({ industry }: { industry?: IndustryService })
              <span>Enterprise Deployment</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white mb-6 leading-[1.1]">
-            Architect Your Digital Systems
-          </h2>
-          <p className="text-zinc-400 text-lg mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-            Discuss your operational bottlenecks with our engineering team. We’ll design a high-performance infrastructure tailored specifically to your {industry ? industry.title.toLowerCase() : "business"} workflows.
-          </p>
-          
-          <MagneticButton href="/initiate">
-            {ctaText}
-          </MagneticButton>
+          <div className="w-full relative z-20">
+            <ProjectScopingConsole />
+          </div>
         </motion.div>
       </div>
     </section>
