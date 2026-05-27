@@ -86,8 +86,28 @@ body {
   animation: ambient-breathe 12s ease-in-out infinite;
 }
 
-/* ─── Responsive type helpers ────────────────────────── */
+/* ─── Typography-First Enterprise Hierarchy ────────────── */
+h1 {
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+h2 {
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+h3, h4 {
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
 @media (max-width: 640px) {
-  h1 { line-height: 1.08; }
-  h2 { line-height: 1.12; }
+  h1 { line-height: 1.02; }
+  h2 { line-height: 1.05; }
+}
+
+/* Operational Metadata Styling */
+.metadata, .system-status, .telemetry-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
 }

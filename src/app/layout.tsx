@@ -96,7 +96,18 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-background">
+        {/* Persistent Telemetry Spine */}
+        <div className="fixed top-0 bottom-0 left-[5%] w-[1px] bg-gradient-to-b from-transparent via-[var(--color-accent-cyan)]/10 to-transparent pointer-events-none z-0 hidden md:block" />
+        <div className="fixed top-0 bottom-0 left-[15%] w-[1px] bg-gradient-to-b from-transparent via-white/5 to-transparent pointer-events-none z-0 hidden lg:block" />
+        
+        {/* Shared Environmental Lighting */}
+        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[600px] bg-gradient-radial from-[var(--color-accent-cyan)]/3 via-[var(--color-accent-violet)]/3 to-transparent blur-[120px] pointer-events-none z-0" />
+
+        <div className="relative z-10 flex flex-col flex-1">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

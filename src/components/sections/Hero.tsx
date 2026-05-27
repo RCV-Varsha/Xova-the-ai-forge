@@ -30,12 +30,13 @@ export default function Hero() {
   }
 
   const fadeUp: Variants = {
-    hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
+    hidden: { opacity: 0, y: 30, filter: "blur(12px)", clipPath: "inset(0 0 100% 0)" },
     visible: { 
       opacity: 1, 
       y: 0, 
       filter: "blur(0px)",
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } 
+      clipPath: "inset(0 0 0% 0)",
+      transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as const } 
     },
   }
 
@@ -43,12 +44,7 @@ export default function Hero() {
     <section 
       ref={containerRef}
       aria-label="Hero — XOVA Core Systems"
-      className="relative min-h-[88vh] lg:min-h-[95vh] flex items-center justify-center pt-32 lg:pt-40 pb-20 lg:pb-24 overflow-hidden bg-[#030509]"
     >
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none z-0" />
-
-      <Meteors number={8} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-8 items-center">
@@ -80,10 +76,10 @@ export default function Hero() {
             {/* Headline */}
             <motion.h1 
               variants={fadeUp}
-              className="text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[0.92] max-w-[680px]"
+              className="text-[3.5rem] sm:text-6xl lg:text-7xl font-semibold tracking-tighter text-white leading-[0.95] max-w-[680px]"
             >
               Engineering the <br className="hidden lg:block"/> 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-[var(--color-accent-cyan)]">digital engines</span> <br className="hidden lg:block"/>
+              <span className="text-zinc-300">digital engines</span> <br className="hidden lg:block"/>
               of modern enterprise.
             </motion.h1>
 
@@ -98,22 +94,30 @@ export default function Hero() {
             {/* CTAs */}
             <motion.div 
               variants={fadeUp}
-              className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto relative z-30 pointer-events-auto"
+              className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto relative z-30 pointer-events-auto items-center"
             >
-              <Link
-                href="/services"
-                className="relative inline-flex items-center justify-center gap-2 rounded-full bg-white text-black hover:bg-zinc-100 font-semibold text-xs tracking-wider uppercase px-8 h-12 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.25)] hover:-translate-y-0.5 active:scale-95 group overflow-hidden"
-              >
+              <div className="relative group">
+                {/* Breathing Radial Glow */}
                 <motion.div 
-                  animate={{ x: ["-150%", "250%"] }} 
-                  transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
-                  className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent -skew-x-12" 
+                  animate={{ scale: [1, 1.08, 1], opacity: [0.5, 0.8, 0.5] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -inset-2 rounded-full bg-gradient-to-r from-[var(--color-accent-cyan)]/20 to-[var(--color-accent-violet)]/20 blur-md pointer-events-none"
                 />
-                <span className="relative z-10 flex items-center gap-2">
-                  Explore Services
-                  <ArrowUpRight className="size-4" />
-                </span>
-              </Link>
+                <Link
+                  href="/services"
+                  className="relative inline-flex items-center justify-center gap-2 rounded-full bg-white text-black hover:bg-zinc-100 font-semibold text-xs tracking-wider uppercase px-8 h-12 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.25)] hover:-translate-y-0.5 active:scale-95 overflow-hidden"
+                >
+                  <motion.div 
+                    animate={{ x: ["-150%", "250%"] }} 
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
+                    className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent -skew-x-12" 
+                  />
+                  <span className="relative z-10 flex items-center gap-2">
+                    Explore Services
+                    <ArrowUpRight className="size-4" />
+                  </span>
+                </Link>
+              </div>
 
               <Link
                 href="/initiate"
@@ -123,14 +127,25 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            {/* Trust / Metadata Metrics */}
+            {/* Trust / Metadata Metrics Marquee */}
             <motion.div
               variants={fadeUp}
-              className="mt-12 flex flex-wrap items-center gap-6 border-t border-white/[0.04] pt-6 relative z-30 opacity-60"
+              className="mt-12 w-[120%] -ml-[10%] sm:w-[150%] sm:-ml-[25%] lg:w-full lg:ml-0 overflow-hidden relative z-30 pt-6 border-t border-white/[0.04]"
             >
-              <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-zinc-400 uppercase">
-                Hospitality • Educare • B2B • Agriculture
-              </span>
+              {/* Fade Edges for Marquee */}
+              <div className="absolute inset-y-0 left-0 w-8 sm:w-16 bg-gradient-to-r from-[#030509] to-transparent z-10" />
+              <div className="absolute inset-y-0 right-0 w-8 sm:w-16 bg-gradient-to-l from-[#030509] to-transparent z-10" />
+              
+              <div className="flex w-full relative h-6 opacity-60">
+                <motion.div
+                  animate={{ x: ["0%", "-50%"] }}
+                  transition={{ duration: 40, ease: "linear", repeat: Infinity }}
+                  className="flex whitespace-nowrap items-center gap-10 font-mono text-[10px] sm:text-[11px] tracking-[0.2em] text-zinc-400 uppercase w-max"
+                >
+                  <span className="flex items-center gap-10">Hospitality • Educare • B2B Systems • Agriculture • E-Commerce • SaaS Platforms • Healthcare • Professional Services • AI Infrastructure • Enterprise Automation</span>
+                  <span className="flex items-center gap-10">Hospitality • Educare • B2B Systems • Agriculture • E-Commerce • SaaS Platforms • Healthcare • Professional Services • AI Infrastructure • Enterprise Automation</span>
+                </motion.div>
+              </div>
             </motion.div>
 
           </motion.div>
@@ -143,13 +158,13 @@ export default function Hero() {
             className="w-full mt-16 lg:mt-0 z-10 relative flex justify-end items-center"
           >
             {/* HERO TOPOLOGY BACKGROUND */}
-            <div className="absolute right-[-10%] top-[5%] w-[800px] max-w-[80vw] z-0 pointer-events-none opacity-40 mix-blend-screen select-none hidden lg:block">
+            <div className="absolute right-[-10%] top-[5%] w-[800px] max-w-[80vw] z-0 pointer-events-none opacity-[0.15] mix-blend-screen select-none hidden lg:block">
               <div className="absolute inset-0 bg-[var(--color-accent-cyan)]/5 blur-[80px] rounded-full pointer-events-none" />
               <img src="/images/hero-topology.png" alt="" className="w-full h-full object-contain" style={{ maskImage: "radial-gradient(circle at center, rgba(0,0,0,1) 40%, transparent 70%)", WebkitMaskImage: "radial-gradient(circle at center, rgba(0,0,0,1) 40%, transparent 70%)" }} />
             </div>
 
             {/* Background Glow for Dashboard */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[var(--color-accent-blue)]/20 blur-[100px] rounded-full pointer-events-none z-0" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-[var(--color-accent-blue)]/5 blur-[150px] rounded-full pointer-events-none z-0" />
             
             {/* TELEMETRY SWEEP */}
             <motion.div
@@ -161,19 +176,22 @@ export default function Hero() {
             {/* Faint Architectural Grid behind console */}
             <div className="absolute inset-[-20%] bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,black_10%,transparent_80%)] z-0" />
 
-            {/* Structural Container */}
-            <div className="relative w-full max-w-lg mx-auto flex flex-col gap-6 z-10">
+            {/* Structural Container - Synchronized Float */}
+            <motion.div 
+              animate={{ y: [-8, 8, -8] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-full max-w-lg mx-auto flex flex-col gap-6 z-10"
+            >
 
               {/* Depth Card 1: Live Metrics (Top Left, behind) */}
               <motion.div
-                initial={{ opacity: 0, x: -20, y: 20 }}
-                animate={{ opacity: 1, x: 0, y: [0, -4, 0] }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ 
                   opacity: { duration: 1.2, delay: 0.5 },
-                  x: { duration: 1.2, delay: 0.5 },
-                  y: { duration: 12, repeat: Infinity, ease: "easeInOut" } 
+                  x: { duration: 1.2, delay: 0.5 } 
                 }}
-                className="absolute left-0 top-0 translate-x-6 -translate-y-[24px] w-48 h-28 rounded-lg border border-white/10 bg-[#050816]/80 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.8),inset_0_0_15px_rgba(255,255,255,0.02)] z-10 hidden md:flex flex-col p-4"
+                className="absolute left-0 top-0 translate-x-6 -translate-y-[24px] w-48 h-28 rounded-lg border border-white/5 bg-[#050816]/60 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.5),inset_0_0_15px_rgba(255,255,255,0.01)] z-10 hidden md:flex flex-col p-4"
               >
                 <div className="font-mono text-[10px] text-zinc-500 tracking-[0.2em] mb-auto">CLUSTER_NODE_A</div>
                 <div className="flex gap-1.5 items-end h-10 mt-4">
@@ -191,10 +209,9 @@ export default function Hero() {
                 animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
                 transition={{ 
                   opacity: { duration: 1.2, delay: 0.7 },
-                  x: { duration: 1.2, delay: 0.7 },
-                  y: { duration: 16, repeat: Infinity, ease: "easeInOut", delay: 1 } 
+                  x: { duration: 1.2, delay: 0.7 } 
                 }}
-                className="absolute right-0 bottom-0 translate-x-10 translate-y-[18px] w-56 h-auto rounded-lg border border-[var(--color-accent-violet)]/20 bg-[#050816]/80 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.8),inset_0_0_15px_rgba(139,92,246,0.03)] z-10 hidden md:flex flex-col p-4"
+                className="absolute right-0 bottom-0 translate-x-10 translate-y-[18px] w-56 h-auto rounded-lg border border-[var(--color-accent-violet)]/10 bg-[#050816]/60 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.5),inset_0_0_15px_rgba(139,92,246,0.02)] z-10 hidden md:flex flex-col p-4"
               >
                 <div className="flex justify-between items-center mb-4">
                    <div className="font-mono text-[10px] text-zinc-500 tracking-[0.2em]">AGENTIC_ROUTER</div>
@@ -212,9 +229,7 @@ export default function Hero() {
               
               {/* Unified Telemetry Console (Dominant Center, z-20) */}
               <motion.div 
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 14, ease: "easeInOut", repeat: Infinity }}
-                className="relative w-full rounded-xl border border-white/15 bg-[#050816]/70 backdrop-blur-xl shadow-[0_30px_60px_rgba(0,0,0,0.7),inset_0_0_20px_rgba(255,255,255,0.02)] z-20 overflow-hidden flex flex-col pointer-events-auto"
+                className="relative w-full rounded-xl border border-white/5 bg-[#050816]/30 backdrop-blur-md shadow-[0_30px_60px_rgba(0,0,0,0.5),inset_0_0_20px_rgba(255,255,255,0.01)] z-20 overflow-hidden flex flex-col pointer-events-auto"
               >
                 {/* Top Bar */}
                 <div className="h-9 border-b border-white/[0.05] bg-white/[0.02] flex items-center justify-between px-4">
@@ -283,7 +298,7 @@ export default function Hero() {
                       </div>
                       <div>
                         <div className="font-mono text-[9px] text-zinc-400 tracking-widest leading-none mb-1">SECURITY</div>
-                        <div className="text-xs font-medium text-white tracking-wide leading-none">ZERO_TRUST</div>
+                        <div className="text-xs font-medium text-white tracking-wide leading-none">SECURE_ACCESS</div>
                       </div>
                     </div>
                     {/* Execution Log */}
@@ -301,7 +316,7 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-            </div>
+            </motion.div>
           </motion.div>
 
         </div>

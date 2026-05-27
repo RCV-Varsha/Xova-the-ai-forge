@@ -5,58 +5,58 @@ const getBaseTimeline = (industrySlug: string): TimelineStage[] => {
     return [
       {
         id: "t1",
-        title: "System Consulting",
-        objective: "Map your supply chain and inventory flows to ensure technical alignment with your operational goals.",
-        businessImpact: "Secures continuity during the transition and identifies system bottlenecks early.",
+        title: "Infrastructure Consulting",
+        objective: "Audit existing supply chain endpoints and map high-availability data pipelines for automated inventory routing.",
+        businessImpact: "Mitigates operational downtime during deployment and guarantees synchronous stock tracking.",
         duration: "2 Weeks",
         status: "completed",
         clientReviewStatus: "Verified",
-        operationalNotes: "Audited existing POS systems and inventory data.",
-        deliverables: ["Architecture Blueprint", "Data Strategy"]
+        operationalNotes: "Legacy POS endpoints audited. Supply chain bottlenecks identified.",
+        deliverables: ["Infrastructure Blueprint", "Data Routing Strategy"]
       },
       {
         id: "t2",
         title: "Interface Architecture",
-        objective: "Design intuitive customer experiences that improve trust and streamline the purchasing process.",
-        businessImpact: "Increases conversions through frictionless navigation and clear product presentation.",
+        objective: "Engineer frictionless, conversion-optimized transactional interfaces built on headless architecture.",
+        businessImpact: "Accelerates path-to-purchase and improves mobile conversion velocity.",
         duration: "3 Weeks",
         status: "completed",
         clientReviewStatus: "Verified",
-        operationalNotes: "Optimized mobile checkout flow for higher volume.",
-        deliverables: ["Interactive Prototypes", "Design Guidelines"]
+        operationalNotes: "Checkout routing optimized for concurrent high-volume transactions.",
+        deliverables: ["Interactive Prototypes", "Component Design System"]
       },
       {
         id: "t3",
         title: "Core Engineering",
-        objective: "Construct the digital storefront and integrate secure back-end data pipelines for inventory.",
-        businessImpact: "Delivers a scalable platform capable of handling high traffic without downtime.",
+        objective: "Construct the digital storefront environment and connect decoupled API pipelines for real-time order processing.",
+        businessImpact: "Establishes a highly resilient operational core capable of absorbing traffic spikes.",
         duration: "5 Weeks",
         status: "active",
         clientReviewStatus: "Client Validation Required",
-        operationalNotes: "Configuring real-time inventory synchronization.",
-        deliverables: ["Frontend System", "API Integration", "Staging Environment"]
+        operationalNotes: "Deploying webhook infrastructure for real-time inventory synchronization.",
+        deliverables: ["Decoupled Frontend", "API Gateway Integration", "Staging Environment"]
       },
       {
         id: "t4",
-        title: "Quality Assurance",
-        objective: "Perform rigorous load testing and security auditing across payment gateways.",
-        businessImpact: "Protects customer financial data and prevents transaction errors.",
+        title: "Quality Assurance & Load Testing",
+        objective: "Execute rigorous concurrency simulations and penetration testing across all financial data pipelines.",
+        businessImpact: "Secures transactional integrity and hardens the platform against latency.",
         duration: "2 Weeks",
         status: "upcoming",
         clientReviewStatus: "Awaiting Feature Sign-off",
-        operationalNotes: "Simulating high-concurrency checkout scenarios.",
-        deliverables: ["Testing Report", "Security Clearance"]
+        operationalNotes: "Simulating peak-hour traffic against the payment routing layer.",
+        deliverables: ["Telemetry & Load Report", "Security Clearance Certification"]
       },
       {
         id: "t5",
-        title: "Platform Launch",
-        objective: "Seamlessly transition operations to the new infrastructure while monitoring performance.",
-        businessImpact: "Immediate realization of faster speeds and improved customer experience.",
+        title: "Production Deployment",
+        objective: "Execute a phased, zero-downtime migration to the new cloud infrastructure with continuous telemetry monitoring.",
+        businessImpact: "Immediate realization of sub-second load times and unified data flow.",
         duration: "1 Week",
         status: "upcoming",
         clientReviewStatus: "Deployment Ready",
-        operationalNotes: "Routing scheduled during off-peak hours to minimize disruption.",
-        deliverables: ["Live Production Setup", "Staff Documentation"]
+        operationalNotes: "DNS routing adjustments scheduled for off-peak maintenance window.",
+        deliverables: ["Live Production Environment", "Operational Runbooks"]
       }
     ];
   }
@@ -65,58 +65,58 @@ const getBaseTimeline = (industrySlug: string): TimelineStage[] => {
   return [
     {
       id: "t1",
-      title: "System Consulting",
-      objective: "Audit your legacy workflows to map the exact data pipelines required for modernization.",
-      businessImpact: "Prevents operational disruption while preparing internal systems for new capabilities.",
+      title: "Infrastructure Consulting",
+      objective: "Audit legacy workflows to architect resilient, automated data pipelines tailored to your organizational scale.",
+      businessImpact: "Isolates operational risk during migration and maps a precise trajectory for digital transformation.",
       duration: "2 Weeks",
       status: "completed",
       clientReviewStatus: "Verified",
-      operationalNotes: "Identifying current manual bottlenecks.",
-      deliverables: ["System Blueprint", "Workflow Diagrams"]
+      operationalNotes: "Identified high-latency processing bottlenecks in legacy CRM endpoints.",
+      deliverables: ["Systems Architecture Blueprint", "Workflow Telemetry Diagrams"]
     },
     {
       id: "t2",
       title: "Interface Architecture",
-      objective: "Design clear, functional interfaces that reduce cognitive load for your staff and clients.",
-      businessImpact: "Accelerates user adoption and reduces staff training requirements.",
+      objective: "Engineer high-density, low-latency operator interfaces designed to eliminate cognitive friction for staff.",
+      businessImpact: "Accelerates internal adoption velocity and dramatically reduces onboarding overhead.",
       duration: "3 Weeks",
       status: "completed",
       clientReviewStatus: "Verified",
-      operationalNotes: "Prioritizing data density and clear navigation.",
-      deliverables: ["Interactive Prototypes", "Component Library"]
+      operationalNotes: "Prioritizing data density, strict typographical hierarchy, and rapid action routing.",
+      deliverables: ["Interactive Prototypes", "Component Design System"]
     },
     {
       id: "t3",
       title: "Core Engineering",
-      objective: "Build the self-service interfaces and integrate the necessary data routing infrastructure.",
-      businessImpact: "Establishes a reliable, automated environment that operates continuously.",
+      objective: "Build the foundational microservices and establish secure, encrypted data bridges across legacy and modern endpoints.",
+      businessImpact: "Deploys a robust, highly available environment capable of autonomous operational scaling.",
       duration: "6 Weeks",
       status: "active",
       clientReviewStatus: "Awaiting Design Approval",
-      operationalNotes: "Developing reliable API bridges between systems.",
-      deliverables: ["Beta Application", "Database Schema"]
+      operationalNotes: "Developing asynchronous event-driven API bridges for state management.",
+      deliverables: ["Staging Environment", "Database Schema & Indexing Logic"]
     },
     {
       id: "t4",
-      title: "Quality Assurance",
-      objective: "Conduct thorough security audits and functional testing before processing live data.",
-      businessImpact: "Guarantees system stability and protects your operational reputation.",
+      title: "Quality Assurance & Security",
+      objective: "Conduct penetration testing and validate strict data compliance across all integration layers.",
+      businessImpact: "Guarantees absolute system resilience and zero-trust security compliance.",
       duration: "2 Weeks",
       status: "upcoming",
       clientReviewStatus: "Awaiting Feature Sign-off",
-      operationalNotes: "Reviewing all authentication protocols.",
-      deliverables: ["QA Verification", "Security Certification"]
+      operationalNotes: "Reviewing JWT authentication protocols and rate-limiting middleware.",
+      deliverables: ["QA Telemetry Verification", "Security Compliance Certification"]
     },
     {
       id: "t5",
-      title: "Platform Launch",
-      objective: "Execute a controlled deployment to production with comprehensive system monitoring.",
-      businessImpact: "Enables real-world scaling without risking core client relationships.",
+      title: "Production Deployment",
+      objective: "Execute a controlled, phased deployment to production infrastructure with continuous health telemetry.",
+      businessImpact: "Enables seamless enterprise scaling with zero interruption to existing client services.",
       duration: "1 Week",
       status: "upcoming",
       clientReviewStatus: "Deployment Ready",
-      operationalNotes: "Phased rollout starting with internal teams.",
-      deliverables: ["Production Release", "System Documentation"]
+      operationalNotes: "Phased traffic routing starting with internal QA teams before general availability.",
+      deliverables: ["Live Production Release", "Technical Operational Runbooks"]
     }
   ];
 };
@@ -125,238 +125,242 @@ export const industries: IndustryService[] = [
   {
     slug: "b2c-ecommerce",
     iconName: "ShoppingCart",
-    title: "B2C E-Commerce",
-    subtitle: "Scalable Ordering Systems",
-    heroTagline: "High-performance systems for modern retail brands.",
-    heroMetadata: ["Real-Time Inventory", "Secure Checkout", "Loyalty Integration"],
-    shortDescription: "Robust digital storefronts and back-end inventory management built for high-volume retail operations.",
-    businessOutcomes: ["Increased conversion rates", "Accurate inventory sync", "Faster page loads"],
-    problems: ["Cart abandonment from slow loading.", "Disconnected inventory causing stockouts.", "Generic customer experiences."],
-    solutions: ["Custom decoupled architecture for fast loading.", "Unified databases linking POS and online sales.", "Professional brand implementation."],
+    title: "B2C Commerce",
+    subtitle: "Commerce Intelligence Infrastructure",
+    heroTagline: "Real-time retail telemetry and conversion optimization systems.",
+    heroMetadata: ["Live Conversion Dashboards", "Inventory Synchronization", "Checkout Infrastructure"],
+    shortDescription: "Robust digital storefront architecture and decoupled backend environments built for high-volume operational conversion logic.",
+    businessOutcomes: ["Accelerated conversion velocity", "Synchronous inventory mapping", "Sub-second path-to-purchase latency"],
+    problems: ["Cart abandonment driven by architectural latency.", "Disconnected inventory nodes resulting in supply drift.", "Generic monolithic customer routing."],
+    solutions: ["Decoupled, headless infrastructure for immediate execution.", "Unified database ledgers synchronizing POS and digital endpoints.", "Behavioral commerce routing engines."],
     features: [
-      { title: "Decoupled Architecture", description: "Separated front-end for faster shopping experiences.", iconName: "Zap" },
-      { title: "Unified Inventory", description: "Stock synchronization across all sales channels.", iconName: "Database" },
-      { title: "Smart Routing", description: "Personalized product recommendations.", iconName: "Bot" }
+      { title: "Decoupled Architecture", description: "Separated infrastructural layers for sub-second page delivery.", iconName: "Zap" },
+      { title: "Inventory Telemetry", description: "Continuous stock synchronization across distributed sales channels.", iconName: "Database" },
+      { title: "Behavioral Routing", description: "Automated, algorithmic user traversal paths.", iconName: "Bot" }
     ],
-    deliverables: [{ title: "Custom Storefront", description: "Optimized consumer interface." }, { title: "Management Dashboard", description: "Centralized control for products." }],
+    deliverables: [{ title: "Conversion Engine", description: "High-performance frontend interface." }, { title: "Operations Dashboard", description: "Centralized node management for products." }],
     technologies: [
-      { name: "Modern Frameworks", description: "Fast static & dynamic storefront delivery." },
-      { name: "Relational Data", description: "Secure ledger for orders and inventory." }
+      { name: "Asynchronous Frontends", description: "Instantaneous static and dynamic state delivery." },
+      { name: "Distributed Ledgers", description: "Secure, highly available databases for order routing." }
     ],
     transformationImpacts: [
-      { title: "Abandoned Carts", description: "Reduced through optimized page performance." },
-      { title: "Inventory Errors", description: "Minimized via omni-channel synchronization." }
+      { title: "Abandonment Friction", description: "Minimized through optimized interface routing." },
+      { title: "Inventory Desync", description: "Eliminated via omni-channel automated ledgers." }
     ],
     operationalPreviews: [
-      { title: "Order Fulfillment", type: "pipeline", description: "Tracking active order states." },
-      { title: "Inventory Levels", type: "metrics", description: "Monitoring stock depletion rates." }
+      { title: "Order Fulfillment Pipeline", type: "pipeline", description: "Tracking active transactional states." },
+      { title: "Inventory Telemetry", type: "metrics", description: "Real-time stock depletion tracking." }
     ],
     timeline: getBaseTimeline("b2c-ecommerce"),
-    ctaText: "Start Planning"
+    ctaText: "Deploy Commerce Systems"
   },
   {
     slug: "b2b-systems",
     iconName: "Building2",
     title: "B2B Systems",
-    subtitle: "Enterprise Procurement",
-    heroTagline: "Secure transactional platforms for supply chain operations.",
-    heroMetadata: ["Automated Procurement", "Secure Portals", "ERP Integration"],
-    shortDescription: "Reliable platforms designed to manage wholesale, supply chain, and B2B transactional workflows.",
-    businessOutcomes: ["Automated order routing", "Secure client access", "Streamlined ERP sync"],
-    problems: ["Manual processing causing delays.", "Lack of transparency for wholesale buyers.", "Disconnected legacy systems."],
-    solutions: ["Automated procurement pipelines.", "Self-service client portals.", "Custom API connections to legacy databases."],
+    subtitle: "Enterprise Workflow Orchestration",
+    heroTagline: "Secure operational lead routing and CRM intelligence.",
+    heroMetadata: ["Automated Workflow Pipelines", "Enterprise Analytics", "Lead Processing Systems"],
+    shortDescription: "Resilient backend platforms designed to automate wholesale operations, enterprise logistics, and CRM data flow.",
+    businessOutcomes: ["Automated enterprise routing", "Encrypted data exchange", "Synchronized CRM pipelines"],
+    problems: ["Manual state processing creating latency bottlenecks.", "Opaque visibility across B2B transaction endpoints.", "Disconnected, legacy enterprise resource planners."],
+    solutions: ["Automated algorithmic procurement pipelines.", "Role-based intelligence dashboards for stakeholders.", "Secure API orchestration bridging legacy environments."],
     features: [
-      { title: "Secure Portals", description: "Role-based access for different client tiers.", iconName: "ShieldCheck" },
-      { title: "System Bridging", description: "Data flow between web platforms and internal ERPs.", iconName: "Network" }
+      { title: "Encrypted Portals", description: "Tiered access authentication for enterprise nodes.", iconName: "ShieldCheck" },
+      { title: "System Orchestration", description: "Continuous automated data exchange between web endpoints and internal ERPs.", iconName: "Network" }
     ],
-    deliverables: [{ title: "B2B Portal", description: "Secure login environment for clients." }, { title: "API Gateway", description: "Connectors for existing tools." }],
+    deliverables: [{ title: "Enterprise Hub", description: "Authenticated operational environment for clients." }, { title: "API Gateway", description: "Secure data connectors mapping to legacy toolchains." }],
     technologies: [
-      { name: "API Infrastructure", description: "Bridging legacy systems with modern interfaces." },
-      { name: "Identity Access", description: "Role-based control and secure authentication." }
+      { name: "API Infrastructure", description: "Bridging legacy environments with modern cloud architecture." },
+      { name: "Identity Access Logic", description: "Granular, role-based state control and zero-trust authentication." }
     ],
     transformationImpacts: [
-      { title: "Processing Time", description: "Reduced through automated order routing." },
-      { title: "Support Volume", description: "Decreased via transparent self-service portals." }
+      { title: "Processing Latency", description: "Reduced through continuous automated lead routing." },
+      { title: "Support Overhead", description: "Decreased via transparent self-service operational portals." }
     ],
     operationalPreviews: [
-      { title: "Lead Pipeline", type: "crm-pipeline", description: "Stages of client acquisition." },
-      { title: "Transaction Volume", type: "metrics", description: "Monitoring daily B2B activity." }
+      { title: "Lead Qualification Pipeline", type: "crm-pipeline", description: "Automated state routing of B2B procurement requests." },
+      { title: "System Throughput", type: "metrics", description: "Monitoring high-volume API transaction exchange." }
     ],
     timeline: getBaseTimeline("b2b-systems"),
-    ctaText: "Start Planning"
+    ctaText: "Initialize Orchestration"
   },
   {
     slug: "hospitality",
     iconName: "Utensils",
     title: "Hospitality",
-    subtitle: "Guest Experience Systems",
-    heroTagline: "Operational systems engineered for dining and hospitality brands.",
-    heroMetadata: ["Direct Reservations", "Guest CRM", "Staff Automation"],
-    shortDescription: "Integrated booking, CRM, and management systems tailored for hotels and restaurants.",
-    businessOutcomes: ["Frictionless booking", "Centralized guest data", "Operational clarity"],
-    problems: ["High third-party commission fees.", "Fragmented guest information.", "Inefficient staff coordination."],
-    solutions: ["Direct booking engines to retain revenue.", "Unified CRM for guest history.", "Automated task routing for staff."],
+    subtitle: "Occupancy Intelligence Systems",
+    heroTagline: "Reservation orchestration and kitchen workflow coordination.",
+    heroMetadata: ["Live Occupancy Telemetry", "Dining Operations Systems", "Reservation Queues"],
+    shortDescription: "Integrated booking infrastructure, guest data ledgers, and automated staff dispatching systems.",
+    businessOutcomes: ["Frictionless pipeline booking", "Centralized operational intelligence", "Automated staff workflows"],
+    problems: ["Overreliance on third-party aggregation logic.", "Fragmented, siloed guest interaction data.", "Inefficient asynchronous staff coordination."],
+    solutions: ["Direct pipeline reservation engines to maximize revenue retention.", "Unified data ledger for guest intelligence.", "Algorithmic task routing for hospitality staff."],
     features: [
-      { title: "Booking Engine", description: "Custom reservation system with real-time availability.", iconName: "Calendar" },
-      { title: "Unified CRM", description: "Comprehensive view of guest preferences.", iconName: "Users" }
+      { title: "Orchestration Engine", description: "Custom reservation backend maintaining real-time occupancy state.", iconName: "Calendar" },
+      { title: "Intelligence CRM", description: "Unified relational view of continuous guest interactions.", iconName: "Users" }
     ],
-    deliverables: [{ title: "Direct Booking Site", description: "Optimized consumer booking flow." }, { title: "Staff Backend", description: "Management interface for daily operations." }],
+    deliverables: [{ title: "Reservation Pipeline", description: "Optimized consumer transactional flow." }, { title: "Operations Console", description: "Administrative interface for active telemetry." }],
     technologies: [
-      { name: "State Management", description: "Prevents double-bookings across properties." },
-      { name: "Customer Data Vault", description: "Securely stores guest preferences." }
+      { name: "State Management", description: "Concurrent processing preventing collision in bookings." },
+      { name: "Encrypted Data Vault", description: "Secure storage architecture for guest preferences." }
     ],
     transformationImpacts: [
-      { title: "Commission Costs", description: "Reduced via direct-booking adoption." },
-      { title: "Guest Loyalty", description: "Improved through personalized data utilization." }
+      { title: "Dependency Overhead", description: "Reduced via direct-infrastructure adoption." },
+      { title: "Guest Intelligence", description: "Maximized through continuous personalized data mapping." }
     ],
     operationalPreviews: [
-      { title: "Reservation Queue", type: "reservation-queue", description: "Live incoming booking requests." },
-      { title: "Capacity Tracking", type: "dashboard", description: "Monitoring peak hour dining availability." }
+      { title: "Reservation Routing", type: "reservation-queue", description: "Real-time automated table state allocation." },
+      { title: "Capacity Telemetry", type: "dashboard", description: "Monitoring dynamic peak-hour dining availability." }
     ],
     timeline: getBaseTimeline("hospitality"),
-    ctaText: "Start Planning"
+    ctaText: "Deploy Hospitality OS"
   },
   {
     slug: "agriculture",
     iconName: "Sprout",
     title: "Agriculture",
-    subtitle: "Supply Chain & Operations",
-    heroTagline: "Data-driven platforms for farm management and distribution.",
-    heroMetadata: ["Distribution Logistics", "Inventory Movement", "Supply Visibility"],
-    shortDescription: "Systems designed to track supply chains, manage operations, and connect with B2B distributors.",
-    businessOutcomes: ["Clear supply chain visibility", "Accurate yield tracking", "Automated distribution"],
-    problems: ["Limited visibility into logistics.", "Manual and inefficient record-keeping.", "Disconnects with wholesale buyers."],
-    solutions: ["Dashboards for operational tracking.", "Digitized record workflows.", "Direct marketplace platforms."],
+    subtitle: "Agricultural Logistics Telemetry",
+    heroTagline: "Distributor coordination and crop yield monitoring systems.",
+    heroMetadata: ["Yield Monitoring", "Supply Chain Analytics", "Logistics Pipelines"],
+    shortDescription: "Data-driven infrastructural systems designed to track environmental yields, map logistics, and connect with B2B distribution nodes.",
+    businessOutcomes: ["Transparent logistics telemetry", "Algorithmic yield tracking", "Automated distribution routing"],
+    problems: ["Opaque visibility into global logistics environments.", "Manual, high-latency operational record-keeping.", "Asynchronous connections with wholesale distribution nodes."],
+    solutions: ["Real-time dashboards for continuous operational tracking.", "Digitized workflow logic for record maintenance.", "Direct API-driven marketplace environments."],
     features: [
-      { title: "Operations Dashboard", description: "Clear visualization of daily logistics.", iconName: "LineChart" }
+      { title: "Telemetry Dashboard", description: "Live visualization of continuous supply chain logistics.", iconName: "LineChart" }
     ],
-    deliverables: [{ title: "Management Hub", description: "Centralized interface for agricultural operations." }],
+    deliverables: [{ title: "Logistics Hub", description: "Centralized operational interface for agricultural nodes." }],
     technologies: [
-      { name: "Data Ingestion", description: "Processing field and logistics data reliably." }
+      { name: "Telemetry Ingestion", description: "Real-time processing of environmental and logistics variables." }
     ],
     transformationImpacts: [
-      { title: "Logistics Visibility", description: "End-to-end tracking to reduce product loss." }
+      { title: "Supply Visibility", description: "Continuous end-to-end tracking to mitigate infrastructural loss." }
     ],
     operationalPreviews: [
-      { title: "Supply Chain Route", type: "logistics-flow", description: "Visualizing delivery stages." },
-      { title: "Yield Data", type: "metrics", description: "Monitoring production output." }
+      { title: "Logistics State", type: "logistics-flow", description: "Visualizing automated supply chain progression." },
+      { title: "Production Output", type: "metrics", description: "Monitoring active algorithmic yield predictions." }
     ],
     timeline: getBaseTimeline("agriculture"),
-    ctaText: "Start Planning"
+    ctaText: "Initialize Telemetry"
   },
   {
     slug: "educare",
     iconName: "GraduationCap",
     title: "Educare",
-    subtitle: "Learning Management Systems",
-    heroTagline: "Scalable educational platforms for modern institutions.",
-    heroMetadata: ["Admissions Automation", "Parent Portals", "LMS Integration"],
-    shortDescription: "Secure platforms, student portals, and administrative dashboards for educational facilities.",
-    businessOutcomes: ["Streamlined administration", "Clear student progress", "Secure data handling"],
-    problems: ["Outdated student interfaces.", "Heavy administrative workload for enrollment.", "Poor visibility into student performance."],
-    solutions: ["Frictionless student portals.", "Automated enrollment processes.", "Clear analytics dashboards for educators."],
+    subtitle: "Academic Operations Infrastructure",
+    heroTagline: "Automated admissions orchestration and learning telemetry.",
+    heroMetadata: ["Classroom Telemetry", "Enrollment Pipelines", "Institutional Analytics"],
+    shortDescription: "Enterprise-grade operational environments engineered for high-volume academic institutions and faculty coordination.",
+    businessOutcomes: ["Synchronized data pipelines", "Real-time cohort insights", "Automated student lifecycles"],
+    problems: ["Fragmented enrollment pipelines causing institutional latency.", "Siloed faculty coordination and manual academic records.", "Lack of real-time telemetry on student lifecycle progression."],
+    solutions: ["Unified academic operations infrastructure.", "Automated admissions orchestration pipelines.", "Centralized institutional analytics and LMS integration."],
     features: [
-      { title: "Student Portal", description: "Accessible interface for course materials.", iconName: "UserCircle" }
+      { title: "Enrollment Pipeline", description: "Automated state routing for admissions processing.", iconName: "Route" },
+      { title: "Institutional Analytics", description: "Real-time visualization of cohort progression.", iconName: "LineChart" },
+      { title: "Faculty Coordination", description: "Synchronized administrative infrastructure.", iconName: "Network" }
     ],
-    deliverables: [{ title: "LMS Platform", description: "Core learning management system." }],
+    deliverables: [{ title: "Academic OS", description: "Core institutional operating system." }, { title: "Telemetry Hub", description: "Centralized tracking dashboard." }],
     technologies: [
-      { name: "Secure Storage", description: "Scalable handling of curriculum media." }
+      { name: "State Orchestration", description: "Secure, concurrent processing of academic states." },
+      { name: "Data Aggregation", description: "Real-time syncing of cohort telemetry." }
     ],
     transformationImpacts: [
-      { title: "Administrative Burden", description: "Reduced through automated billing and enrollment." }
+      { title: "Administrative Latency", description: "Eliminated via automated student lifecycle routing." },
+      { title: "Institutional Silos", description: "Resolved through unified cross-department infrastructure." }
     ],
     operationalPreviews: [
-      { title: "Student Progress", type: "lms-progress", description: "Tracking cohort performance." },
-      { title: "Daily Roster", type: "list", description: "Active attendance records." }
+      { title: "Admissions Pipeline", type: "list", description: "Automated queue state traversal." },
+      { title: "Cohort Telemetry", type: "lms-progress", description: "Real-time academic throughput." }
     ],
     timeline: getBaseTimeline("educare"),
-    ctaText: "Start Planning"
+    ctaText: "Deploy Infrastructure"
   },
   {
     slug: "healthcare",
     iconName: "Activity",
     title: "Healthcare",
-    subtitle: "Compliant Medical Systems",
-    heroTagline: "Secure architecture for clinic and patient management.",
-    heroMetadata: ["Data Compliance", "Automated Scheduling", "Secure Records"],
-    shortDescription: "Reliable patient portals and clinic management software focused on security and compliance.",
-    businessOutcomes: ["Compliant data security", "Automated appointments", "Clear communication"],
-    problems: ["Strict compliance requirements.", "Inefficient scheduling causing no-shows.", "Fragmented patient communication."],
-    solutions: ["Architecture built for data security.", "Automated scheduling pipelines.", "Integrated secure messaging."],
+    subtitle: "Clinical Systems Telemetry",
+    heroTagline: "Patient coordination infrastructure and operational healthcare systems.",
+    heroMetadata: ["Patient Pipelines", "Operational Monitoring", "Scheduling Telemetry"],
+    shortDescription: "Highly available patient orchestration portals and clinic management architectures demanding absolute security and zero-trust compliance.",
+    businessOutcomes: ["Zero-trust data compliance", "Automated pipeline scheduling", "Synchronous operational communication"],
+    problems: ["Complex, rigid data compliance bottlenecks.", "High-latency scheduling logic inducing operational gaps.", "Fragmented and asynchronous patient communication."],
+    solutions: ["Systems engineered exclusively for strict zero-trust data compliance.", "Automated, algorithmic scheduling pipelines.", "Integrated, encrypted messaging protocols."],
     features: [
-      { title: "Patient Portal", description: "Secure access to health records.", iconName: "Shield" }
+      { title: "Encrypted Portal", description: "Zero-trust access gateway to health records.", iconName: "Shield" }
     ],
-    deliverables: [{ title: "Patient Interface", description: "Accessible web application for patients." }],
+    deliverables: [{ title: "Patient Interface", description: "Accessible, compliant web environment for users." }],
     technologies: [
-      { name: "Secure Architecture", description: "Engineered for strict medical data standards." }
+      { name: "Zero-Trust Architecture", description: "Engineered specifically for medical compliance limits." }
     ],
     transformationImpacts: [
-      { title: "Patient No-Shows", description: "Reduced via automated reminder routing." }
+      { title: "Scheduling Gaps", description: "Mitigated via automated reminder telemetry routing." }
     ],
     operationalPreviews: [
-      { title: "Patient Queue", type: "reservation-queue", description: "Triage routing system." },
-      { title: "System Health", type: "dashboard", description: "Monitoring platform stability." }
+      { title: "Triage Routing Pipeline", type: "reservation-queue", description: "Automated patient state management." },
+      { title: "System Health Limits", type: "dashboard", description: "Monitoring continuous platform stability constraints." }
     ],
     timeline: getBaseTimeline("healthcare"),
-    ctaText: "Start Planning"
+    ctaText: "Launch Medical Systems"
   },
   {
     slug: "professional-services",
     iconName: "Briefcase",
     title: "Professional Services",
-    subtitle: "Client Portals & Automation",
-    heroTagline: "Digital infrastructure for agencies and consultancies.",
-    heroMetadata: ["Client Portals", "Document Automation", "Secure Messaging"],
-    shortDescription: "Systems designed to manage clients, secure documents, and automate onboarding at scale.",
-    businessOutcomes: ["Professional client experience", "Automated processing", "Centralized communication"],
-    problems: ["Scattered communication threads.", "Manual onboarding wasting billable time.", "Inconsistent digital presence."],
-    solutions: ["Centralized client hubs.", "Automated data collection pipelines.", "Professional visual identity."],
+    subtitle: "Strategic Workflow Management",
+    heroTagline: "Enterprise consulting infrastructure and operational coordination.",
+    heroMetadata: ["Service Pipelines", "Client Coordination", "Reporting Dashboards"],
+    shortDescription: "Systems designed to orchestrate client states, encrypt document transfers, and automate onboarding lifecycles at scale.",
+    businessOutcomes: ["Synchronized client interactions", "Automated lifecycle processing", "Centralized operational communication"],
+    problems: ["Asynchronous and scattered communication protocols.", "Manual operational workflows consuming billable bandwidth.", "Inconsistent digital environmental presence."],
+    solutions: ["Centralized, secure operational hubs.", "Automated asynchronous data collection pipelines.", "Unified visual intelligence design."],
     features: [
-      { title: "Client Hub", description: "A single location for secure file access.", iconName: "FolderLock" }
+      { title: "Operational Hub", description: "A secure, encrypted environment for file exchange.", iconName: "FolderLock" }
     ],
-    deliverables: [{ title: "Client Portal", description: "Secure login area for active clients." }],
+    deliverables: [{ title: "Client Environment", description: "Secure state-managed portal for active interactions." }],
     technologies: [
-      { name: "Document APIs", description: "Automates standard contract creation." }
+      { name: "Documentation APIs", description: "Programmatic generation of standard contract assets." }
     ],
     transformationImpacts: [
-      { title: "Billable Time", description: "Increased by removing administrative data entry." }
+      { title: "Billable Bandwidth", description: "Reclaimed by eliminating manual administrative execution." }
     ],
     operationalPreviews: [
-      { title: "Onboarding Flow", type: "pipeline", description: "Automated document collection." },
-      { title: "Access Logs", type: "list", description: "Secure file activity." }
+      { title: "Lifecycle Pipeline", type: "pipeline", description: "Automated KYC and data ingestion workflow." },
+      { title: "Encrypted Access Logs", type: "list", description: "Continuous file retrieval telemetry." }
     ],
     timeline: getBaseTimeline("professional-services"),
-    ctaText: "Start Planning"
+    ctaText: "Deploy Agency Systems"
   },
   {
     slug: "saas-platforms",
     iconName: "CloudCog",
     title: "SaaS Platforms",
-    subtitle: "Scalable Software Products",
-    heroTagline: "Architecture for growing software products.",
-    heroMetadata: ["Multi-Tenant Data", "Subscription Billing", "High Availability"],
-    shortDescription: "End-to-end development and architecture for Software as a Service products.",
-    businessOutcomes: ["Multi-tenant security", "Automated billing", "Stable infrastructure"],
-    problems: ["Scaling multi-tenant architecture.", "Complex subscription logic.", "Difficult feature iteration."],
-    solutions: ["Robust database design.", "Integrated automated billing.", "Modular architecture for fast deployment."],
+    subtitle: "Distributed Infrastructure Monitoring",
+    heroTagline: "Tenant orchestration and platform telemetry scaling.",
+    heroMetadata: ["Deployment Topology", "Infrastructure Nodes", "API Monitoring"],
+    shortDescription: "End-to-end architectural engineering and DevOps deployment for scalable Software as a Service ecosystems.",
+    businessOutcomes: ["Isolated multi-tenant security", "Programmatic billing algorithms", "Highly available infrastructure"],
+    problems: ["Scaling latency in multi-tenant architectural constraints.", "Rigid, monolithic subscription logic.", "High-friction environments hindering feature velocity."],
+    solutions: ["Distributed, robust schema design for scale.", "Integrated algorithmic logic for automated billing.", "Modular microservice architecture enabling rapid deployment."],
     features: [
-      { title: "Multi-Tenancy", description: "Secure data isolation per client.", iconName: "Database" },
-      { title: "Subscription Engine", description: "Automated billing and tier management.", iconName: "CreditCard" }
+      { title: "Tenant Isolation", description: "Secure logical data separation at the database layer.", iconName: "Database" },
+      { title: "Algorithmic Billing", description: "Programmatic tier mapping and logic resolution.", iconName: "CreditCard" }
     ],
-    deliverables: [{ title: "SaaS Application", description: "The core software product." }, { title: "Admin Panel", description: "Internal management tool." }],
+    deliverables: [{ title: "Core SaaS Engine", description: "The central computational product." }, { title: "Telemetry Dashboard", description: "Internal operations and monitoring node." }],
     technologies: [
-      { name: "Multi-Tenant Architecture", description: "Isolates data securely for users." },
-      { name: "Billing Infrastructure", description: "Automated logic for upgrades and revenue tracking." }
+      { name: "Distributed Environments", description: "Secure, highly available deployment topologies." },
+      { name: "Revenue Infrastructure", description: "Automated webhook ingestion for financial operations." }
     ],
     transformationImpacts: [
-      { title: "Scaling Constraints", description: "Removed through flexible infrastructure." },
-      { title: "Billing Overhead", description: "Eliminated via programmatic integrations." }
+      { title: "Scaling Friction", description: "Eliminated through modular infrastructural pipelines." },
+      { title: "Financial Latency", description: "Mitigated via programmatic API resolution." }
     ],
     operationalPreviews: [
-      { title: "Tenant Health", type: "metrics", description: "Organization telemetry." },
-      { title: "Billing Logs", type: "list", description: "Automated webhook activity." }
+      { title: "Node Health", type: "metrics", description: "Organizational CPU and memory utilization logic." },
+      { title: "Webhook Telemetry", type: "list", description: "Live asynchronous event tracking for billing." }
     ],
     timeline: getBaseTimeline("saas-platforms"),
-    ctaText: "Start Planning"
+    ctaText: "Architect Infrastructure"
   }
 ];

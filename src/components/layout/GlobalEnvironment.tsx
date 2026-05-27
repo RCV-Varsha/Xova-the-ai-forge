@@ -182,14 +182,15 @@ export default function GlobalEnvironment() {
         }}
       />
       
-      {/* 2. Soft Radial Blur / Atmospheric Lighting (Suppressed) */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-20">
-        <div className="absolute top-[-10%] left-[-10%] w-[30%] h-[30%] rounded-full bg-[var(--color-accent-blue)] blur-[80px] opacity-10 mix-blend-screen" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[25%] h-[25%] rounded-full bg-[var(--color-accent-violet)] blur-[80px] opacity-10 mix-blend-screen" />
+      {/* 2. Global Atmospheric Lighting */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-40">
+        <div className="absolute top-[-20%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[var(--color-accent-cyan)] blur-[120px] opacity-10 mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute top-[30%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-[var(--color-accent-violet)] blur-[150px] opacity-10 mix-blend-screen animate-pulse" style={{ animationDuration: '12s' }} />
+        <div className="absolute bottom-[-10%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-[var(--color-accent-blue)] blur-[120px] opacity-[0.08] mix-blend-screen animate-pulse" style={{ animationDuration: '10s' }} />
       </div>
 
-      {/* 3. Subtle Grid Texture (Depth) */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      {/* 3. Continuous Background Grid */}
+      <div className="fixed inset-0 z-0 pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:48px_48px]" />
 
       {/* 4. Canvas Antigravity Particle Engine */}
       <canvas

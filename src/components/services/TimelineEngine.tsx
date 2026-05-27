@@ -23,7 +23,18 @@ const StatusIcon = ({ status }: { status: TimelineStage["status"] }) => {
       "border-white/10 bg-[#03060d] text-zinc-600"
     )}>
       {isCompleted && <CheckCircle2 className="size-5" />}
-      {isActive && <Clock className="size-5 animate-pulse" />}
+      {isActive && (
+        <>
+          <motion.div 
+            className="absolute inset-0 rounded-full bg-[var(--color-accent-violet)] blur-[20px] mix-blend-screen opacity-40"
+            animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0.7, 0.4] }} 
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div animate={{ scale: [1, 1.12, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="relative z-10">
+            <Clock className="size-5" />
+          </motion.div>
+        </>
+      )}
       {isUpcoming && <CircleDashed className="size-5" />}
     </div>
   );
@@ -128,11 +139,17 @@ export default function TimelineEngine({ industry }: { industry: IndustryService
   const activeStageData = industry.timeline.find(s => s.id === activeStageId) || industry.timeline[0];
 
   return (
-    <section className="py-24 lg:py-32 bg-[#050811] relative overflow-hidden border-t border-white/[0.05]">
-      {/* Background Blueprint Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
+    <section className="py-24 lg:py-32 bg-transparent relative overflow-hidden border-t border-white/[0.05]">
+      {/* Background Telemetry Atmosphere */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+         <motion.div 
+            animate={{ x: [0, -100], opacity: [0.3, 0.5, 0.3] }} 
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/4 right-1/4 w-[40vw] h-[40vw] bg-[var(--color-accent-violet)] blur-[150px] mix-blend-screen opacity-20 rounded-full"
+         />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-10">
         
         <div className="mb-16 text-center lg:text-left max-w-2xl">
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white mb-6">
@@ -167,12 +184,18 @@ export default function TimelineEngine({ industry }: { industry: IndustryService
                     <StatusIcon status={stage.status} />
                   </div>
 
-                  {/* Active selection glow beam */}
+                  {/* Active selection glow beam with traversal signal */}
                   {isActiveNode && (
                     <motion.div 
                       layoutId="activeTimelineBeam"
-                      className="absolute -left-[1px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-transparent via-[var(--color-accent-cyan)] to-transparent shadow-[0_0_10px_var(--color-accent-cyan)]"
-                    />
+                      className="absolute -left-[1px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-transparent via-[var(--color-accent-cyan)] to-transparent shadow-[0_0_10px_var(--color-accent-cyan)] overflow-hidden"
+                    >
+                      <motion.div 
+                        animate={{ top: ["-50%", "150%"] }} 
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+                        className="absolute left-0 w-full h-1/3 bg-white blur-[2px]"
+                      />
+                    </motion.div>
                   )}
 
                   {/* Stage Title Area */}
@@ -193,15 +216,22 @@ export default function TimelineEngine({ industry }: { industry: IndustryService
           </div>
 
           {/* Right Detail Panel */}
-          <div className="col-span-8 relative">
-            <div className="absolute inset-0 rounded-2xl border border-white/10 bg-white/[0.01] backdrop-blur-sm p-8 lg:p-10 shadow-2xl">
+          <div className="col-span-8 relative group">
+            {/* Panel Reflection Overlay */}
+            <motion.div 
+               animate={{ x: ["-100%", "200%"] }}
+               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+               className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent via-white/[0.03] to-transparent skew-x-12"
+               style={{ WebkitMaskImage: "linear-gradient(to right, black, black)" }}
+            />
+            <div className="absolute inset-0 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.05)] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeStageId}
-                  initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+                  initial={{ opacity: 0, y: 15, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -10, filter: "blur(4px)" }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  exit={{ opacity: 0, y: -15, filter: "blur(8px)" }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <DetailContent stage={activeStageData} />
                 </motion.div>

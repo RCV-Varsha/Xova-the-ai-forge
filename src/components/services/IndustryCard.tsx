@@ -40,7 +40,7 @@ export default function IndustryCard({ industry }: { industry: IndustryService }
   const glowX = useTransform(mouseXSpring, (v) => (v + 0.5) * 100);
   const glowY = useTransform(mouseYSpring, (v) => (v + 0.5) * 100);
 
-  const glowBackground = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(34, 211, 238, 0.1), transparent 50%)`;
+  const glowBackground = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(255, 255, 255, 0.08), transparent 40%)`;
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
@@ -75,24 +75,38 @@ export default function IndustryCard({ industry }: { industry: IndustryService }
           transformStyle: "preserve-3d",
         }}
         className={cn(
-          "relative h-full rounded-2xl border border-white/[0.08] bg-[#050914]/80 backdrop-blur-sm shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_10px_30px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-500",
-          isHovered ? "border-white/[0.15] bg-[#070b1a] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_20px_40px_rgba(0,0,0,0.7)]" : ""
+          "relative h-full rounded-2xl border border-white/[0.05] bg-[#0A0F1D]/40 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.4),inset_0_1px_0_0_rgba(255,255,255,0.1),inset_0_0_20px_rgba(255,255,255,0.02)] overflow-hidden transition-all duration-700",
+          isHovered ? "border-white/[0.12] bg-[#0D1426]/60 shadow-[0_20px_50px_rgba(0,0,0,0.6),inset_0_1px_0_0_rgba(255,255,255,0.15),inset_0_0_30px_rgba(255,255,255,0.04)] scale-[1.015] -translate-y-1" : ""
         )}
       >
+        {/* Conic Gradient Border Sweep */}
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-[-100%] bg-[conic-gradient(from_0deg,transparent_0%,transparent_70%,rgba(34,211,238,0.3)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+          style={{ transformOrigin: "center center" }}
+        />
+        <div className="absolute inset-[1px] rounded-2xl bg-[#0A0F1D] z-0" />
+
+        {/* Subtle Reflective Corner Illumination */}
+        <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.04),transparent_50%)]" />
         {/* Dynamic Glow */}
         <motion.div 
           className="absolute inset-0 pointer-events-none transition-opacity duration-500"
           style={{ opacity: isHovered ? 1 : 0, background: glowBackground }}
         />
         
-        {/* Subtle Telemetry Scanline */}
+        {/* Subtle Telemetry Scanline (Only on Hover) */}
         <motion.div 
-          className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/20 to-transparent pointer-events-none z-0"
+          className={cn(
+            "absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/20 to-transparent pointer-events-none z-0 transition-opacity duration-700",
+            isHovered ? "opacity-100" : "opacity-0"
+          )}
           animate={{ top: ["-10%", "110%"] }}
           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
         />
 
-        <div className="relative z-10 flex flex-col h-full p-6 lg:p-8" style={{ transform: "translateZ(20px)" }}>
+        <div className="relative z-10 flex flex-col h-full p-6 lg:p-8" style={{ transform: "translateZ(30px)" }}>
           {/* Header */}
           <div className="flex justify-between items-start mb-5">
             <div className="p-2.5 rounded-lg border border-white/5 bg-white/[0.02]">
@@ -105,8 +119,8 @@ export default function IndustryCard({ industry }: { industry: IndustryService }
           </div>
           
           <div className="mb-4">
-             <h3 className="text-xl font-semibold text-white tracking-tight mb-1">{industry.title}</h3>
-             <p className="text-[11px] font-mono tracking-[0.2em] uppercase text-zinc-500">{industry.subtitle}</p>
+             <h3 className="text-xl font-medium text-white tracking-tight mb-1.5">{industry.title}</h3>
+             <p className="text-[10px] font-mono tracking-[0.25em] uppercase text-zinc-500">{industry.subtitle}</p>
           </div>
 
           <p className="text-sm font-light text-zinc-400 leading-relaxed mb-8 flex-grow">

@@ -15,20 +15,30 @@ const PipelineWireframe = () => (
     {[1, 2, 3].map((step, i) => (
       <div key={i} className="flex items-center gap-4 relative">
         {i !== 2 && <div className="absolute left-3 top-6 bottom-[-16px] w-px bg-white/10" />}
-        <div className="relative size-6 rounded-full border border-[var(--color-accent-cyan)]/30 bg-[#02040a] flex items-center justify-center shrink-0">
+        <div className="relative size-6 rounded-full border border-[var(--color-accent-cyan)]/30 bg-[#02040a] flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(34,211,238,0.1)]">
           <motion.div 
-            animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.8, 0.3] }}
-            transition={{ duration: 2, delay: i * 0.5, repeat: Infinity }}
-            className="size-1.5 rounded-full bg-[var(--color-accent-cyan)]"
+            animate={{ scale: [1, Math.random() * 0.4 + 1.2, 1], opacity: [0.3, 1, 0.3] }}
+            transition={{ duration: Math.random() * 2 + 2, delay: i * 0.4, repeat: Infinity, ease: "easeInOut" }}
+            className="size-1.5 rounded-full bg-[var(--color-accent-cyan)] shadow-[0_0_8px_rgba(34,211,238,0.8)]"
           />
         </div>
         <div className="flex-1 h-10 rounded bg-white/5 border border-white/5 flex items-center px-4 relative overflow-hidden">
+          {/* Signal Traversal Beam */}
           <motion.div 
-            animate={{ x: ["-100%", "200%"] }}
-            transition={{ duration: 3, delay: i * 0.4, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 bottom-0 w-1/3 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-[-20deg]"
+            animate={{ left: ["-10%", "110%"] }}
+            transition={{ duration: 2 + Math.random(), delay: i * 0.8, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 bottom-0 w-8 bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/40 to-transparent blur-[2px]"
           />
-          <div className="w-1/3 h-1.5 rounded-full bg-white/10" />
+          <motion.div 
+            animate={{ x: ["-100%", "250%"] }}
+            transition={{ duration: 3.5 + i, delay: i * 1.2, repeat: Infinity, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-0 bottom-0 w-1/3 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent skew-x-[-20deg]"
+          />
+          <motion.div 
+            animate={{ width: ["30%", "35%", "30%"] }}
+            transition={{ duration: 4, delay: i, repeat: Infinity, ease: "easeInOut" }}
+            className="h-1.5 rounded-full bg-white/10" 
+          />
         </div>
       </div>
     ))}
@@ -38,13 +48,18 @@ const PipelineWireframe = () => (
 const MetricsWireframe = () => (
   <div className="flex items-end gap-2 h-32 w-full pt-4">
     {[40, 70, 45, 90, 60, 85, 50].map((height, i) => (
-      <div key={i} className="flex-1 bg-white/5 border border-white/5 rounded-t relative overflow-hidden group" style={{ height: `${height}%` }}>
+      <motion.div 
+        key={i} 
+        animate={{ height: [`${height}%`, `${height + (Math.random() > 0.5 ? 15 : -15)}%`, `${height}%`] }}
+        transition={{ duration: Math.random() * 3 + 2, delay: Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
+        className="flex-1 bg-white/5 border border-white/5 rounded-t relative overflow-hidden group" 
+      >
         <motion.div 
-          animate={{ opacity: [0.1, 0.5, 0.1] }}
-          transition={{ duration: 3, delay: i * 0.2, repeat: Infinity }}
-          className="absolute inset-0 bg-gradient-to-b from-[var(--color-accent-violet)]/20 to-transparent"
+          animate={{ opacity: [0.1, 0.4, 0.1] }}
+          transition={{ duration: Math.random() * 2 + 2, delay: Math.random(), repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0 bg-gradient-to-b from-[var(--color-accent-violet)]/30 to-transparent"
         />
-      </div>
+      </motion.div>
     ))}
   </div>
 );
@@ -52,12 +67,21 @@ const MetricsWireframe = () => (
 const ListWireframe = () => (
   <div className="flex flex-col gap-2 w-full">
     {[1, 2, 3, 4].map((item, i) => (
-      <div key={i} className="flex items-center justify-between p-3 rounded bg-white/5 border border-white/5">
-        <div className="flex items-center gap-3">
-          <div className="size-2 rounded-full bg-amber-500/50" />
+      <div key={i} className="flex items-center justify-between p-3 rounded bg-white/5 border border-white/5 relative overflow-hidden">
+        <motion.div 
+          animate={{ x: ["-100%", "300%"] }}
+          transition={{ duration: 4 + i, delay: i * 1.5, repeat: Infinity, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/[0.03] to-transparent skew-x-[-20deg]"
+        />
+        <div className="flex items-center gap-3 relative z-10">
+          <motion.div 
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2 + i * 0.5, delay: i * 0.3, repeat: Infinity, ease: "easeInOut" }}
+            className="size-2 rounded-full bg-amber-500/60" 
+          />
           <div className="w-24 sm:w-32 h-2 rounded bg-white/10" />
         </div>
-        <div className="w-12 h-2 rounded bg-white/5" />
+        <div className="w-12 h-2 rounded bg-white/5 relative z-10" />
       </div>
     ))}
   </div>
@@ -72,15 +96,25 @@ const DashboardWireframe = () => (
       </div>
       <div className="h-16 rounded border border-[var(--color-accent-cyan)]/20 bg-[var(--color-accent-cyan)]/5 p-3 flex flex-col justify-between relative overflow-hidden">
         <motion.div 
-          animate={{ x: ["-100%", "200%"] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          animate={{ x: ["-100%", "250%"] }}
+          transition={{ duration: 5, repeat: Infinity, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0 bg-gradient-to-r from-transparent via-[var(--color-accent-cyan)]/10 to-transparent skew-x-[-20deg]"
         />
         <div className="w-1/2 h-1.5 rounded bg-[var(--color-accent-cyan)]/30" />
-        <div className="w-3/4 h-3 rounded bg-[var(--color-accent-cyan)]/50" />
+        <motion.div 
+          animate={{ width: ["70%", "80%", "70%"] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="h-3 rounded bg-[var(--color-accent-cyan)]/50" 
+        />
       </div>
     </div>
-    <div className="h-20 rounded border border-white/5 bg-white/5" />
+    <div className="h-20 rounded border border-white/5 bg-white/5 relative overflow-hidden flex items-center justify-center">
+        <motion.div 
+          animate={{ opacity: [0.1, 0.3, 0.1] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="w-1/3 h-1/3 rounded-full bg-white/10 blur-xl"
+        />
+    </div>
   </div>
 );
 
@@ -133,10 +167,13 @@ export default function OperationalPreview({ industry }: { industry: IndustrySer
   if (!industry.operationalPreviews || industry.operationalPreviews.length === 0) return null;
 
   return (
-    <section className="py-24 bg-[#02040a] relative overflow-hidden border-t border-white/[0.05]">
-      {/* Background Depth */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:48px_48px] pointer-events-none" />
-      
+    <motion.section 
+      initial={{ opacity: 0, y: 30, filter: "blur(12px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+      className="py-24 bg-transparent relative overflow-hidden border-t border-white/[0.05]"
+    >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         <div className="mb-16 text-center max-w-2xl mx-auto">
@@ -164,10 +201,21 @@ export default function OperationalPreview({ industry }: { industry: IndustrySer
               className="flex flex-col"
             >
               {/* Monitor Frame */}
-              <div className="rounded-xl border border-white/10 bg-[#050811] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden flex-1 flex flex-col group">
+              <motion.div 
+                whileHover={{ scale: 1.01 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="rounded-xl border border-white/10 bg-[#050811] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5),inset_0_1px_0_0_rgba(255,255,255,0.05)] overflow-hidden flex-1 flex flex-col group relative"
+              >
                 
+                {/* Diagonal Screen Refresh Sweep */}
+                <motion.div 
+                  animate={{ left: ["-200%", "200%"] }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-y-0 w-1/2 bg-gradient-to-r from-transparent via-white/[0.02] to-transparent skew-x-[-30deg] pointer-events-none z-20"
+                />
+
                 {/* Fake OS Header */}
-                <div className="h-10 border-b border-white/5 bg-[#02040a] flex items-center px-4 gap-4">
+                <div className="h-10 border-b border-white/5 bg-white/[0.02] flex items-center px-4 gap-4 z-10 relative">
                   <div className="flex gap-1.5">
                     <div className="size-2.5 rounded-full bg-white/10" />
                     <div className="size-2.5 rounded-full bg-white/10" />
@@ -188,11 +236,11 @@ export default function OperationalPreview({ industry }: { industry: IndustrySer
                     idx % 2 === 0 ? "bg-[var(--color-accent-cyan)]" : "bg-[var(--color-accent-violet)]"
                   )} />
                   
-                  <div className="w-full relative z-10">
+                  <div className="w-full relative z-10 transition-opacity duration-500 opacity-80 group-hover:opacity-100">
                     {renderWireframe(preview.type)}
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Caption */}
               <div className="mt-6 px-2">
@@ -209,6 +257,6 @@ export default function OperationalPreview({ industry }: { industry: IndustrySer
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 }

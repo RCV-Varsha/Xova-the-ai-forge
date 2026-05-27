@@ -102,7 +102,13 @@ export default function Process() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="mb-12 max-w-2xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 15, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] as const }}
+          className="mb-12 max-w-2xl"
+        >
           <div className="mb-6 inline-flex items-center gap-2 font-mono uppercase tracking-[0.25em] text-[11px] text-[var(--color-accent-violet)] rounded-full border border-[var(--color-accent-violet)]/20 bg-[var(--color-accent-violet)]/5 px-4 py-1.5">
             PIPELINE PROTOCOL
           </div>
@@ -112,7 +118,7 @@ export default function Process() {
           <div className="text-zinc-400 text-base lg:text-lg leading-relaxed max-w-2xl">
             <TextReveal text="We execute sequentially via our Pipeline Protocol. A rigid operational framework designed to eliminate ambiguity, ensure rapid deployment, and guarantee architectural integrity." />
           </div>
-        </div>
+        </motion.div>
 
         {/* Card Swap Interactive Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">

@@ -49,18 +49,33 @@ export default async function IndustryPage({ params }: Props) {
   return (
     <>
       <Navbar />
-      <main className="flex-1 flex flex-col bg-[#02040a]">
-        <IndustryHero industry={industryData} />
-        <BusinessProblems industry={industryData} />
-        <SolutionsSection industry={industryData} />
-        <FeatureShowcase industry={industryData} />
-        <TransformationImpact industry={industryData} />
-        <OperationalPreview industry={industryData} />
-        <TimelineEngine industry={industryData} />
-        <DeliverablesPanel industry={industryData} />
-        <TechnologiesGrid industry={industryData} />
-        <BusinessOutcomes industry={industryData} />
-        <CTASection industry={industryData} />
+      <main className="flex-1 flex flex-col bg-[#02040a] relative overflow-hidden">
+        {/* GLOBAL CONTINUOUS ENVIRONMENT */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          {/* Continuous Blueprint Grid */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:48px_48px]" />
+          
+          {/* Layered Environmental Fog & Lighting */}
+          <div className="absolute top-0 left-0 w-[50vw] h-[50vh] bg-[var(--color-accent-cyan)]/[0.03] blur-[150px] rounded-full mix-blend-screen" />
+          <div className="absolute bottom-0 right-0 w-[60vw] h-[60vh] bg-[var(--color-accent-violet)]/[0.03] blur-[200px] rounded-full mix-blend-screen" />
+          
+          {/* Diagonal Haze */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.01] to-transparent" />
+        </div>
+
+        <div className="relative z-10 flex flex-col">
+          <IndustryHero industry={industryData} />
+          <BusinessProblems industry={industryData} />
+          <SolutionsSection industry={industryData} />
+          <FeatureShowcase industry={industryData} />
+          <TransformationImpact industry={industryData} />
+          <OperationalPreview industry={industryData} />
+          <TimelineEngine industry={industryData} />
+          <DeliverablesPanel industry={industryData} />
+          <TechnologiesGrid industry={industryData} />
+          <BusinessOutcomes industry={industryData} />
+          <CTASection industry={industryData} />
+        </div>
       </main>
       <Footer />
     </>
